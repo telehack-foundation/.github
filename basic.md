@@ -507,8 +507,8 @@ Now I'm back from the subroutine
 
 Branch unconditionally out of the normal program sequence to a specified line number
 ```
- 10  PRINT "Hello World!";
- 20  GOTO 10
+10  PRINT "Hello World!"
+20  GOTO 10
 ```
 ```
 Hello World!
