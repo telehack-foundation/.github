@@ -1,5 +1,3 @@
-# TeleBASIC Reference Guide
-##
 
 [Back to main](basic.md)
 ##
