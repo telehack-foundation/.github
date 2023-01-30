@@ -519,7 +519,7 @@ Hello World!
 Hello World!
 [...]
 ```
-_You might want to use a [SLEEP](#sleep-n) statement here!_
+_You might want to use a [`SLEEP`](#sleep-n) statement here!_
 
 ##
 
