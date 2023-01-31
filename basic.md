@@ -150,7 +150,7 @@ ped /tablen=<n>  set tab length to <n>
 
 ### Arithmetic Operators
 
-Standard mathematical operators such as `()` `mod` `/` `*` `+` `-` are available.
+Standard mathematical operators such as `()` `^` `mod` `/` `*` `+` `-` are available.
 
 
 ## 3. Variables and Data Types
