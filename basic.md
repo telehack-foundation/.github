@@ -6,11 +6,11 @@ Dartmouth DTSS TeleBASIC (c) 1964,1966,1969,1970,1971,1979,2023
 
 ## What is TeleBASIC?
 
-TeleBASIC is the flavour of [BASIC](https://en.wikipedia.org/wiki/BASIC) (Beginners' All-purpose Symbolic Instruction Code), used on [Telehack](https://telehack.com/).  TeleBASIC is based on [Dartmouth Time Sharing System](https://en.wikipedia.org/wiki/Dartmouth_Time_Sharing_System) BASIC, but with a large number of additional features, such as support for regular expressions, UNIX timestamps, many common hashing/encoding algorithms, multi-dimensional arrays, and the ability to use alphanumeric indices.
+TeleBASIC is the flavour of BASIC (Beginners' All-purpose Symbolic Instruction Code), that is used on [Telehack](https://telehack.com/).  TeleBASIC is based on the original Dartmouth BASIC, but with a large number of additional features, such as support for regular expressions, UNIX timestamps, many common hashing/encoding algorithms, multi-dimensional arrays, and the ability to use alphanumeric indices.
 
-Features from other types of BASIC such as [HP2000 Access BASIC](https://en.wikipedia.org/wiki/HP_Time-Shared_BASIC), and [Commodore BASIC](https://en.wikipedia.org/wiki/Commodore_BASIC) have been added for increased compatibility and functionality.
+Features from other types of BASIC such as HP2000 Access BASIC and Commodore BASIC have been added for increased compatibility and functionality.
 
-TeleBASIC is actively maintained by [The Telehack Foundation](https://github.com/orgs/telehack-foundation/people/).
+TeleBASIC has a wide user-base and is actively maintained by members of [The Telehack Foundation](https://github.com/orgs/telehack-foundation/people/).
 
 
 ## Table of Contents
@@ -30,33 +30,31 @@ TeleBASIC is actively maintained by [The Telehack Foundation](https://github.com
 
 There are currently four user-made plugins, which enable syntax-highlighting in various editors:
 
- - **Atom** - [Website](https://github.com/atom/atom) - [Plugin](https://atom.io/packages/language-thbasic)
- - **Sublime Text 3** - [Website](https://www.sublimetext.com/3) - [Plugin](https://github.com/thunderpoot/telebasic-sublime-syntax)
- - **Visual Studio Code** - [Website](https://code.visualstudio.com/) - [Plugin](https://marketplace.visualstudio.com/items?itemName=vscode-th-basic.vscode-th-basic)
- - **Nova** - [Website](https://nova.app/) - [Plugin](https://github.com/thunderpoot/NovaTeleBASIC)
+ - [**Atom**](https://telehack.com/r/tg9sD)
+ - [**Nova**](https://telehack.com/r/gDAbA)
+ - [**Sublime Text 3**](https://telehack.com/r/lP7iz)
+ - [**Visual Studio Code**](https://telehack.com/r/vxEjh)
 
 
 ### Using `PED`
 
-You can also use the text editor `PED` within Telehack.  Based on [ped](https://github.com/daansystems/ped) by Niek Albers, but with a vast amount of extra features included, such as TeleBASIC syntax highlighting, and the ability to run BASIC programs without closing the editor.
+You can also use the text editor `PED` within Telehack - a massively augmented version of the original program by Niek Albers.  Extra features include syntax highlighting, and the ability to run programs without closing the editor.
 
 These features are accessible via emacs-style meta-key shortcuts.
 
-To see a list of available features within the editor, type:
-
-```
-M-x list-packages RET
-```
+To see a list of features type `M-x list-packages RET`.
 
 #### What does that mean?
 
 The "M" refers to the "meta" key on your keyboard (most often, this is the escape key) and "RET" refers to the "return" key.
 
-For example, to enable BASIC syntax highlighting, you would press escape, then x, then type "basic" and hit return.  Thus, the shorthand would be `M-x basic RET`.
+For example, to enable BASIC syntax highlighting, you would press escape, then x, then type "basic" and hit return.
 
-Additionally, you do not need to type the full name of the command.  It is sufficient to simply `M-x ba RET`.
+Thus, the shorthand would be `M-x basic RET`.
 
-To run a BASIC program within `PED` type `M-x r RET`.
+Additionally, you do not need to type the full name of the command.  It is sufficient to simply type `M-x ba RET`.
+
+To run a BASIC program within `PED` type `M-x run RET`.
 
 ```
 Command-line options
@@ -150,7 +148,9 @@ ped /tablen=<n>  set tab length to <n>
 
 ### Arithmetic Operators
 
-Standard mathematical operators such as `()` `^` `mod` `/` `*` `+` `-` are available.
+TeleBASIC supports the following standard mathematical operators:
+
+`()`, `^`, `mod`, `/`, `*`, `+`, and `-`.
 
 
 ## 3. Variables and Data Types
@@ -900,7 +900,7 @@ Returns the position of `s2$` in `s1$` indexed from 1, or 0 if not found
 
 ### `PRINT expression`
 
-Prints a expression to the screen
+Prints an expression to the screen
 
 ```
 10  A = 5
@@ -1724,11 +1724,11 @@ Returns uuencoded form of input string
 
 Returns values of time and date depending on `n`
 
- - `0` - current minute (0-59)
- - `1` - current hour (0-23)
- - `2` - current day (1-366)
- - `3` - current year (0-99)
- - `4` - current second (0-59)
+ - `0` - Current minute (0-59)
+ - `1` - Current hour (0-23)
+ - `2` - Current day (1-366)
+ - `3` - Current year (0-99)
+ - `4` - Current second (0-59)
 
 ```
 10  PRINT TIM(0)
@@ -1851,7 +1851,7 @@ Returns the numeric value of `s$`
 
 ### **Q:** I need a `NAND` function, but there is none.
 
- **A:** Create the function with:
+**A:** Create the function with:
 
 ```
 DEF FNNAND(v1, v2) = NOT (v1 AND v2)
@@ -1869,7 +1869,7 @@ Now you can call it with:
 
 ### **Q:** How do I read from a file?
 
- **A:** Like this:
+**A:** Like this:
 
 ```
 10  OPEN "filename.txt", AS #1
@@ -1883,7 +1883,7 @@ Now you can call it with:
 
 ### **Q:** How do I write to a file?
 
- **A:** Like this:
+**A:** Like this:
 
 ```
 10  OPEN "filename.txt", AS #1
@@ -1894,7 +1894,7 @@ Now you can call it with:
 
 ### **Q:** How do I _append_ a file?
 
- **A:** You have to open the file and put the file-pointer at the end of file, like this:
+**A:** You have to open the file and put the file-pointer at the end of file, like this:
 
 ```
 10  OPEN "filename.txt", AS #1
@@ -1908,14 +1908,14 @@ Now you can call it with:
 
 ### **Q:** How do I create a BBS?
 
- **A:** You can create a BBS by running `PPPD.EXE`, and pointing it at your BASIC program file. Your BBS will then appear in `bbslist.txt`.
+**A:** You can create a BBS by running `PPPD.EXE`, and pointing it at your BASIC program file. Your BBS will then appear in `bbslist.txt`.
 
 Your BBS baud-rate must be 115200 (11.520 kbps) in order for it to appear in the Telehack netstat.  To gain access to faster baud-rates requires you to upgrade your modem firmware (both `SYSADM` and `BLUEBOX` badges are required.)
 
 
 ### **Q:** How do I split a string into an array?
 
- **A:** There are two methods. The [Traditional "Pure BASIC" Method](#traditional-pure-basic-method), and the [Modern RegEx Method](#modern-regex-method).  Both methods are detailed below.
+**A:** There are two methods. The [Traditional "Pure BASIC" Method](#traditional-pure-basic-method), and the [Modern RegEx Method](#modern-regex-method).  Both methods are detailed below.
 
 
 #### Traditional "Pure BASIC" Method
@@ -1978,12 +1978,12 @@ _The above example uses both [`TH_RE`](#th_retxtpatcountmodeignorecase) (number 
 
 ### **Q:** How can I learn how to write regular expressions?
 
- **A:** The executable `GOLF.EXE` contains multiple lessons on regular expressions.  You can also find many RegEx-related challenges in the `DOJO`.
+**A:** The executable `GOLF.EXE` contains multiple lessons on regular expressions.  You can also find many RegEx-related challenges in the `DOJO`.
 
 
 ### **Q:** How do I generate a random number?
 
- **A:** Like this:
+**A:** Like this:
 
 ```
 10  RANDOMIZE TIMER
@@ -1997,7 +1997,7 @@ _The above example is a pseudorandom number generator, with [`TIMER`](#timer) be
 
 ### **Q:** I would like to code in BASIC, but all those line numbers are messy!
 
- **A:** You don't actually have to use line numbers at all in TeleBASIC!  They are only necessary for when using [`GOTO`](#goto-linenumber) or [`GOSUB`](#gosub-linenumber).
+**A:** You don't actually have to use line numbers at all in TeleBASIC!  They are only necessary for when using [`GOTO`](#goto-linenumber) or [`GOSUB`](#gosub-linenumber).
 
 You also don't have to put everything in uppercase, but doing so means your code will be more compatible with other historical flavours of BASIC.
 
@@ -2040,11 +2040,13 @@ Goodbye!
 
 ```
 
-Additionally, there is a script written by archer which allows you to use labels instead of numbers.  You can find it on [archer's GitHub](https://p85.github.io/renumber/renumber.html).
+Additionally, there is a script written by archer which allows you to use labels instead of numbers.
+
+Find it on [archer's GitHub](https://p85.github.io/renumber/renumber.html).
 
 
 ### **Q:** How do I use `COMM.EXE` via BASIC?
- **A:** Refer to [this guide by archer](https://github.com/telehack-foundation/.github/blob/main/comm.md).
+**A:** Refer to [this guide by archer](https://telehack.com/r/pvELT).
 
 
 ## 7. ANSI Escape Sequences
@@ -2206,17 +2208,18 @@ The following escape codes tells the terminal to use the given colour:
 | `ESC[38;5;{ID}m` | Set foreground colour |
 | `ESC[48;5;{ID}m` | Set background colour |
 
-Where `ID` should be replaced with the colour index from 0 to 255 of the following colour table:
+Where `ID` should be replaced with the colour index from 0 to 255 of the following colour chart:
 
-<img src="https://underwood.network/telehack/ansi_colours.png" alt="ANSI Colour Table">
+<img src="https://github.com/telehack-foundation/.github/raw/main/colour_chart.png" alt="ANSI Colour Chart">
 
 _Generate this table with the following BASIC code:_
 
 ```
 10  FOR I = 0 TO 255
-20  ? CHR$(27) "[38;5;" STR$(I) "m" I ;
-30  IF NOT I MOD 16 THEN ?
-40  NEXT
+20  S$ = TH_SPRINTF$( "%4S", I )
+30  ? CHR$(27) "[38;5;" I "m" S$ ;
+40  IF NOT (I+1) MOD 16 THEN ?
+50  NEXT
 ```
 
 This table starts with the original 16 colours (0-15).
@@ -2231,7 +2234,7 @@ Some emulators interpret these steps as linear increments (256 / 24) on all thre
 
 More modern terminals supports Truecolor (24-bit RGB), which allows you to set foreground and background colours using RGB values.
 
-These escape sequences are usually not well documented.
+These escape sequences are usually documented poorly, if at all.
 
 | Sequence                | Description                   |
 | --------                | -----------                   |
@@ -2292,6 +2295,3 @@ This was used very often to draw boxes on the VT100 video terminal and the many 
 80  IF KEY$ = "D" THEN PRINT "LEFT"
 90  GOTO 10
 ```
-
-
-[Back to top](#)
