@@ -1343,13 +1343,15 @@ Returns the trigonometric tangent of the specified value `n` in radians
 
 ### `TH_SYSLEVEL`
 
-Returns the user's Telehack system level (int)
+Returns the user's Telehack system level.  Optionally takes a username as argument.
 
 ```
 10  PRINT TH_SYSLEVEL
+20  PRINT TH_SYSLEVEL("quantx")
 ```
 ```
  12
+ 81
 ```
 
 _The user executing the above code would evidently have **12** badges._
