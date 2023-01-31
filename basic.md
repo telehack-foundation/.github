@@ -3,7 +3,6 @@
 ```
 Dartmouth DTSS TeleBASIC (c) 1964,1966,1969,1970,1971,1979,2023
 ```
-##
 
 ## What is TeleBASIC?
 
@@ -13,7 +12,6 @@ Features from other types of BASIC such as [HP2000 Access BASIC](https://en.wiki
 
 TeleBASIC is actively maintained by [The Telehack Foundation](https://github.com/orgs/telehack-foundation/people/).
 
-##
 
 ## Table of Contents
 
@@ -25,7 +23,6 @@ TeleBASIC is actively maintained by [The Telehack Foundation](https://github.com
  6. [FAQ](#6-faq)
  7. [ANSI Escape Sequences](#7-ansi-escape-sequences)
 
-##
 
 ## 1. Set Up Your Editor for BASIC Programming
 
@@ -38,7 +35,6 @@ There are currently four user-made plugins, which enable syntax-highlighting in 
  - **Visual Studio Code** - [Website](https://code.visualstudio.com/) - [Plugin](https://marketplace.visualstudio.com/items?itemName=vscode-th-basic.vscode-th-basic)
  - **Nova** - [Website](https://nova.app/) - [Plugin](https://github.com/thunderpoot/NovaTeleBASIC)
 
-##
 
 ### Using `PED`
 
@@ -71,7 +67,6 @@ ped /basic       enables BASIC syntax highlighting
 ped /tablen=<n>  set tab length to <n>
 ```
 
-##
 
 ## 2. Comparing / Logical Operators
 
@@ -153,11 +148,14 @@ ped /tablen=<n>  set tab length to <n>
     10  PRINT NOT 0
     ```
 
-##
+### Arithmetic Operators
+
+Standard mathematical operators such as `()` `mod` `/` `*` `+` `-` are available.
+
 
 ## 3. Variables and Data Types
 
-You can store either text or numerical values in variables.
+You can store either text or numeric values in variables.
 
 Variable names can contain letters and digits, but they have to start with a letter (e.g `FOO`, `BAR123$`).
 
@@ -174,19 +172,18 @@ Strings MUST include the `$` sigil.  If a variable is missing a sigil, then it i
 For example:
 
 ```
-10 NAME$ = "some name"
+10  NAME$ = "some name"
 ```
 
 would represent a string variable `NAME$`, but
 
 ```
-10 NAME = "some name"
+10  NAME = "some name"
 ```
 
 ...would throw a `TYPE MISMATCH ERROR`, since you cannot assign a string to a numeric variable.
 
 
-##
 
 ## 4. Arrays and Hashes
 
@@ -211,7 +208,7 @@ In addition to this, TeleBASIC allows for creation of multi-dimensional arrays, 
 10  MYSTUFF( X, Y ) = 42
 ```
 
-... and indices do not need to be numerical.  Thus, you can create unordered lists (hashes) such as:
+... and indices do not need to be numeric.  Thus, you can create unordered lists (hashes) such as:
 
 ```
 10  FAV$("fruit") = "Apple"
@@ -219,7 +216,6 @@ In addition to this, TeleBASIC allows for creation of multi-dimensional arrays, 
 30  FAV$("language") = "TeleBASIC"
 ```
 
-##
 
 ## 5. Command Overview
 
@@ -231,16 +227,14 @@ Returns the absolute value of the specified value `n`
 10  PRINT ABS(-40)
 ```
 ```
-40
+ 40
 ```
 
-##
 
 ### `ACCESS`
 
 Currently not implemented, does nothing
 
-##
 
 ### `ASC(character)`, `NUM(character)`
 
@@ -250,10 +244,9 @@ Returns the ASCII-Code for its equivalent character
 10  PRINT ASC(" ")
 ```
 ```
-32
+ 32
 ```
 
-##
 
 ### `ARG$`
 
@@ -267,13 +260,11 @@ A string variable this is populated with a string containing the command line ar
 foo bar
 ```
 
-##
 
 ### `ARGV$(n)`
 
 An array containing all of the arguments passed to the program (see example for [`ARGC%`](#argc) below)
 
-##
 
 ### `ARGC%`
 
@@ -293,7 +284,6 @@ hello world
 bar
 ```
 
-##
 
 ### `ASC(s$)`
 Returns the ASCII value of the first character in the string `s$`
@@ -307,7 +297,6 @@ Returns the ASCII value of the first character in the string `s$`
 
 _See also [`NUM`](#nums)_
 
-##
 
 ### `ATN(n)`
 
@@ -317,10 +306,9 @@ Returns the arctangent of the specified value `n`
 10  PRINT ATN(40)
 ```
 ```
-1.546
+ 1.546
 ```
 
-##
 
 ### `BIN$(n)`
 
@@ -333,19 +321,16 @@ Returns the binary representation of the integer `n` as a string
 1111011
 ```
 
-##
 
 ### `BRK(n)`
 
 Currently not implemented, does nothing
 
-##
 
 ### `CALL`
 
 Currently not implemented, does nothing
 
-##
 
 ### `CHR$(n)`
 
@@ -358,7 +343,6 @@ Convert an ASCII code `n` to its equivalent character
 *
 ```
 
-##
 
 ### `CINT(n)`
 
@@ -371,25 +355,22 @@ Returns the nearest integer of the specified value (9.5 becomes 10)
  6
 ```
 
-##
 
 ### `CIRCLE`
 
 Currently not implemented, does nothing
 
-##
 
 ### `COLOR(a, b)`
 
-Changes the background `b` and/or foreground `a` color of the terminal
+Changes the background `b` and/or foreground `a` colour of the terminal
 
 ```
 10  COLOR 3, 4
 20  PRINT "Hello"
 ```
-_Prints `Hello` with blue `b` background and yellow `a` foreground text.  A list of possible colors can be found with the command `SHOW COLORS`._
+_Prints `Hello` with blue `b` background and yellow `a` foreground text.  A list of possible colours can be found with the command `SHOW COLORS`._
 
-##
 
 ### `COS(n)`
 
@@ -402,7 +383,6 @@ Returns the cosinus of a specified value `n` in radians
  -0.517769799789505
 ```
 
-##
 
 ### `CSNG(n)`
 Convert a specified value `n` to a single precision number
@@ -414,7 +394,6 @@ Convert a specified value `n` to a single precision number
  3.450
 ```
 
-##
 
 ### `DATA n...`
 
@@ -429,7 +408,6 @@ Store the numeric and string constants that are accessed by the program [`READ`]
  4.100          5.600          9.980
 ```
 
-##
 
 ### `DEF FNname(Argument) = Expression`
 
@@ -437,45 +415,39 @@ Define a function with the name `FNname` which accepts an `Argument` and returns
 The function name must always begin with `FN`, followed by an optional space.
 
 ```
-10 DEF FN square(x) = x^2
-20 DEF FNcube(x) = x^3
-30 PRINT FNsquare(5),FNcube(5)
+10  DEF FN square(x) = x^2
+20  DEF FNcube(x) = x^3
+30  PRINT FNsquare(5),FNcube(5)
 ```
 ```
  25       125
 ```
 
-##
 
 ### `DEFDBL (Variable)`
 
 Declare a variable as double precision number (currently not implemented, does nothing)
 
-##
 
 ### `DEFINT (Variable)`
 
 Declare a variable as integer number (currently not implemented, does nothing)
 
-##
 
 ### `DEFSNG (Variable)`
 
 Declare a variable as single precision number (currently not implemented, does nothing)
 
-##
 
 ### `DEFSTR (Variable)`
 
 Declare a variable as string (currently not implemented, does nothing)
 
-##
 
 ### `DIM (Variable)`
 
 Define an array of a fixed size (currently not implemented, does nothing)
 
-##
 
 ### `DIR$`
 
@@ -488,19 +460,16 @@ Returns the filenames in your local directory, separated by spaces
 advent.gam againstip.txt basic15.a2 bbslist.txt c8test.c8 changelog.txt colossus.txt command.txt crackdown.txt do-well.txt etewaf.txt finger.txt fireworks.vt fnord.txt future.txt hammurabi.bas hckr_hnd.txt ien137.txt jfet.a2 johnnycode.txt k-rad.txt learncode.txt leaves.txt lem.bas lostpig.gam mastermind.bas notes.txt orange-book.txt oregon.bas porthack.exe privacy.txt rogue.gam rootkit.exe satcom.man smile.c8 starwars.txt sysmon.txt telehack.txt ttest.vt underground.txt unix.txt valentin.vt wardial.exe wumpus.bas xmodem.exe zork.gam
 ```
 
-##
 
 ### `DO`
 
 Currently not implemented, does nothing
 
-##
 
 ### `DRAW`
 
 Currently not implemented, does nothing
 
-##
 
 ### `EOF(n)`
 
@@ -508,7 +477,6 @@ Returns -1 if the file pointer in file number `n` is currently at the end of the
 
 _See also [`TYP`](#typn)._
 
-##
 
 ### `EXP(n)`
 
@@ -521,7 +489,6 @@ Return the base of natural logarithms to the power of the specified value `n`
  442413.392
 ```
 
-##
 
 ### `FOR x = startValue TO maxValue [STEP n]`
 
@@ -552,7 +519,6 @@ _This would run 40 times and output the current counter in each iteration, and w
 
 _This would create an endless loop, printing `1` over and over until terminated._
 
-##
 
 ### `GOSUB (LineNumber)`
 
@@ -571,7 +537,6 @@ I am now in the subroutine
 Now I'm back from the subroutine
 ```
 
-##
 
 ### `GOTO (LineNumber)`
 
@@ -593,13 +558,11 @@ Hello World!
 
 _You might want to use a [`SLEEP`](#sleep-n) statement here!_
 
-##
 
 ### `HEIGHT`
 
 Returns your terminal height
 
-##
 
 ### `HEX$(n)`
 
@@ -612,7 +575,6 @@ Returns a string which represents the hexadecimal value of the specified number 
 7F
 ```
 
-##
 
 ### `IF expression THEN statements`
 
@@ -628,7 +590,6 @@ J is bigger than K
 ```
 _See [section 2. Comparing/Logical Operators](#2-comparing--logical-operators)_
 
-##
 
 ### `INKEY$`
 
@@ -639,29 +600,26 @@ Returns one character read from the terminal. It will wait until a character is 
 20  PRINT A$
 ```
 
-##
 
 ### `INPUT prompt$, var$`
 
-Shows `prompt$` and reads input from the users terminal and saves it into `var$`
+Shows `prompt$` and reads input from the user and saves it into `var$`
 
 ```
 10  INPUT "Enter something>", A$
 20  PRINT A$
 ```
 
-##
 
 ### `INPUT FileNo, var$`
 
 Reads a line from an open file and saves it into `var$`
 
 ```
-10 INPUT# 1, A
-20 PRINT A
+10  INPUT# 1, A
+20  PRINT A
 ```
 
-##
 
 ### `INSTR(string$, search$, startPos)`
 
@@ -676,7 +634,6 @@ Returns the position (starting with 0) of a substring within a string
  6
 ```
 
-##
 
 ### `INT (n)`
 
@@ -689,7 +646,6 @@ Truncate a value to a whole number
  5
 ```
 
-##
 
 ### `ITM(fileNumber)`
 
@@ -705,7 +661,6 @@ In TeleBASIC this will almost always be 1.
  1            2
 ```
 
-##
 
 ### `LEFT$(String, Number)`
 
@@ -720,7 +675,6 @@ Returns a string that comprises the left-most specified number characters of a s
 Hello
 ```
 
-##
 
 ### `LEN(String)`
 
@@ -734,7 +688,6 @@ Returns the number of characters in the specified string
  11
 ```
 
-##
 
 ### `LET Variable = Value`
 
@@ -748,7 +701,6 @@ Assigns a value to a variable.  Traditionally this is for use with constants, wh
  12345
 ```
 
-##
 
 ### LIN(n)
 
@@ -763,7 +715,6 @@ A
 B
 ```
 
-##
 
 ### `LOCATE y, x`
 
@@ -773,7 +724,6 @@ Change the cursors position to `y`, `x`
 10  LOCATE 5, 5
 ```
 
-##
 
 ### `LOG(n)`
 
@@ -786,7 +736,6 @@ Returns the natural logarithm of `n` using [Euler's Number](https://en.wikipedia
  1.792
 ```
 
-##
 
 ### `LOG10(n)`
 
@@ -799,7 +748,6 @@ Returns the natural logarithm of `n` using 10 as the base (decimal).
  0.778
 ```
 
-##
 
 ### `MID$(s$, n, [l])`
 
@@ -813,7 +761,6 @@ Returns a string of `l` characters from `s$` beginning with the `n`th character
 llo
 ```
 
-##
 
 ### `NINT(n)`
 
@@ -826,7 +773,6 @@ Returns the nearest integer of the specified value (9.5 becomes 9)
  6
 ```
 
-##
 
 ### `NUM(s$)`
 
@@ -840,7 +786,6 @@ Returns the ASCII value of the first character in the string `s$`
 ```
 _See also [`ASC`](#ascs)_
 
-##
 
 ### `OCT$(n)`
 
@@ -853,7 +798,6 @@ Returns a octal value of `n`
  102
 ```
 
-##
 
 ### `OPEN filename¢, AS fileNumber`
 
@@ -863,11 +807,10 @@ Opens a file
 10  OPEN "filename.txt", AS #1
 ```
 
-##
 
 ### `ON NUMBER%`
 
-Jump conditionally to [`GOTO`](#goto-linenumber)/[`GOSUB`](#gosub-linenumber), based on value given
+Jump conditionally with [`GOTO`](#goto-linenumber)/[`GOSUB`](#gosub-linenumber), based on value given
 
 ```
  10  NUMBER% = 2
@@ -880,19 +823,16 @@ Jump conditionally to [`GOTO`](#goto-linenumber)/[`GOSUB`](#gosub-linenumber), b
 Goto 200, will jump here
 ```
 
-##
 
 ### `PCLEAR0`
 
 Currently not implemented, does nothing
 
-##
 
 ### `PCLEAR1`
 
 Currently not implemented, does nothing
 
-##
 
 ### `PEEK(n)`
 
@@ -905,19 +845,16 @@ Read a value from the specified memory location `n`
  83
 ```
 
-##
 
 ### `PLAY`
 
 Currently not implemented, does nothing
 
-##
 
 ### `PMODE0`
 
 Currently not implemented, does nothing
 
-##
 
 ### `POKE n, m`
 
@@ -927,7 +864,6 @@ Write a byte of data `m` into the specified memory location `n`
 10  POKE 1300, 255
 ```
 
-##
 
 ### `POLKEY$(n)`
 
@@ -939,7 +875,6 @@ Returns one character read from the terminal. When no key is hit within `n` seco
 30  PRINT A$
 ```
 
-##
 
 ### `PORT%`
 
@@ -949,7 +884,6 @@ Returns the port from the currently logged in user.  Not to be confused with the
 10  PRINT USER$ + " is logged in on port: " + STR$(PORT%)
 ```
 
-##
 
 ### `POS(s1$,s2$)`
 
@@ -963,7 +897,6 @@ Returns the position of `s2$` in `s1$` indexed from 1, or 0 if not found
  3
 ```
 
-##
 
 ### `PRINT expression`
 
@@ -995,7 +928,6 @@ _`&` and `?` are available aliases for `PRINT`_
 
 _Adding a `;` at the end of `PRINT` will suppress the newline_
 
-##
 
 ### `PRINT #fileNumber[,recordNumber]; expression`
 
@@ -1007,7 +939,6 @@ Prints a expression into an open file, with optional record (line) number
 30  CLOSE #1
 ```
 
-##
 
 ### `PRINT #fileNumber[,recordNumber];END`
 
@@ -1021,13 +952,11 @@ Prints an EOF mark to a file, truncating the file at that record
 
 _Observe the placement of the `#` in `PRINT`, `AS`, and `CLOSE` statements in the above examples_
 
-##
 
 ### `PUT`
 
 Currently not implemented, does nothing
 
-##
 
 ### `R2D(n)`
 
@@ -1040,7 +969,6 @@ Converts `n` radians to degrees
  68.755
 ```
 
-##
 
 ### `READ n...`
 
@@ -1055,7 +983,6 @@ Read a value from [`DATA`](#data-n) or a file and assign them to variables
  4.100          5.600          9.980
 ```
 
-##
 
 ### `READ #fileNumber[,recordNumber];variables`
 
@@ -1066,7 +993,6 @@ Read a value from [`DATA`](#data-n) or a file and assign them to variables
 20  READ #1,4;B$
 ```
 
-##
 
 ### `REC(n)`
 
@@ -1084,7 +1010,6 @@ Returns the current record number (line number) in the specified file. Starts at
  3
 ```
 
-##
 
 ### `RENUMBER [start,[inc]]`
 
@@ -1096,11 +1021,10 @@ Renumbers the statements of the current program in memory. When optional paramet
 >REN
 >LIST
 
-   10 GOTO 20
-   20 END
+   10  GOTO 20
+   20  END
 
 ```
-##
 
 ### `RESTORE`
 
@@ -1119,7 +1043,6 @@ Allow [`DATA`](#data-n) statements to be reread
  4.100          5.600          9.980
 ```
 
-##
 
 ### `RETURN`
 
@@ -1135,7 +1058,6 @@ Return from a subroutine, for use with [`GOSUB`](#gosub-linenumber).
 Hello
 ```
 
-##
 
 ### `RIGHT$(s$, n)`
 
@@ -1149,15 +1071,14 @@ Returns the rightmost `n` characters of the specified string `s$`
 World
 ```
 
-##
 
 ### `RND(n)`
 
-If `n < 0`, returns a random number in the interval `[0, 1]` seeded by `INT(n)`
+If `n < 0`, returns a random number in the interval `[0, 1]` seeded by `n`
 
 If `n = 0`, returns a random number in the interval `[0, 1]`
 
-If `n > 0`, returns a random number in the interval `[0, INT(n)]`
+If `n > 0`, returns a random number in the interval `[0, n]`
 
 ```
 10  PRINT RND(-5)
@@ -1170,7 +1091,6 @@ If `n > 0`, returns a random number in the interval `[0, INT(n)]`
  2.376
 ```
 
-##
 
 ### `SCRATCH`
 Delete a file from the disk
@@ -1197,13 +1117,11 @@ HELLO
 WORLD
 ```
 
-##
 
 ### `SCREEN`
 
 Currently not implemented, does nothing
 
-##
 
 ### `SGN(n)`
 
@@ -1220,7 +1138,6 @@ Returns the sign of the specified value `n`
  -1
 ```
 
-##
 
 ### `SIN(n)`
 
@@ -1233,7 +1150,6 @@ Returns the trigonometric sine of the specified value `n` in radians
  -0.991778853443116
 ```
 
-##
 
 ### `SLEEP n`
 
@@ -1243,19 +1159,16 @@ Pauses the program for `n` seconds
 10  SLEEP 5
 ```
 
-##
 
 ### `SOUND`
 
 Currently not implemented, does nothing
 
-##
 
 ### `SOUNDRND`
 
 Currently not implemented, does nothing
 
-##
 
 ### `SPACE$(n)`, `SPC$(n)`, `SPA(n)`
 
@@ -1268,7 +1181,6 @@ Returns `n` spaces
 abc          abc
 ```
 
-##
 
 ### `SQR(n)`
 
@@ -1281,13 +1193,11 @@ Returns the square root of `n`
  6
 ```
 
-##
 
 ### `STOP`
 
 Halts the program and prints the current line.  Useful for debugging programs
 
-##
 
 ### `STR$(n)`
 
@@ -1300,7 +1210,6 @@ Returns `n` as a string value
 12345
 ```
 
-##
 
 ### `STRING$(n, s$)`
 
@@ -1313,7 +1222,6 @@ Repeats the string `s$` `n` times
 AAAAAAAAAA
 ```
 
-##
 
 ### `TAB(n)`, `TAB$(n)`
 
@@ -1326,7 +1234,6 @@ Returns `n` spaces (not tabs!)
 abc          abc
 ```
 
-##
 
 ### `TAN(n)`
 
@@ -1339,7 +1246,6 @@ Returns the trigonometric tangent of the specified value `n` in radians
  0.310
 ```
 
-##
 
 ### `TH_SYSLEVEL`
 
@@ -1356,7 +1262,6 @@ Returns the user's Telehack system level.  Optionally takes a username as argume
 
 _The user executing the above code would evidently have **12** badges._
 
-##
 
 ### `TH_HASBADGE(badge$)`
 
@@ -1375,7 +1280,6 @@ Returns a UNIX timestamp of when the user earned `badge$`, or 0
  0
 ```
 
-##
 
 ### `TH_HASLOGIN(host$)`
 
@@ -1394,7 +1298,6 @@ Returns 1 if the user has login on `host$`, otherwise 0
  0
 ```
 
-##
 
 ### `TH_HASROOT(host$)`
 
@@ -1413,7 +1316,6 @@ Returns 1 if the user has root on `host$`, otherwise 0
  0
 ```
 
-##
 
 ### `TH_HASSYSOP(bbs$)`
 
@@ -1432,7 +1334,6 @@ Returns 1 if the user has sysop on `bbs$`, otherwise 0
  0
 ```
 
-##
 
 ### `TH_HASADMIN(sat$)`
 
@@ -1445,7 +1346,6 @@ Returns 1 if the user has admin on `sat$`, otherwise 0
  1
 ```
 
-##
 
 ### `TH_DEFGROUP$`
 
@@ -1458,7 +1358,6 @@ Returns the user's defgroup, separated by spaces
  archer lorelei
 ```
 
-##
 
 ### `TH_PLAN$`
 
@@ -1472,7 +1371,6 @@ Returns the user's `.plan` as a string
   <3
 ```
 
-##
 
 ### `TH_TIME`
 
@@ -1485,7 +1383,6 @@ Returns the current UNIX timestamp
  1675018633.67413
 ```
 
-##
 
 ### `TH_LOCALTIME[$]`
 
@@ -1524,13 +1421,11 @@ Returns values of time and date if options are supplied, and no sigil:
  0
 ```
 
-##
 
 ### `TH_GMTIME[$]`
 
 Returns a human-readable UTC time for the given UNIX timestamp with the same options as [`TH_LOCALTIME[$]`](#th_localtime)
 
-##
 
 ### `TH_MODEM$`
 
@@ -1544,7 +1439,6 @@ Returns modem information depending on option passed:
  - `5` administrator
  - `6` location
 
-##
 
 ### `TH_HOSTNAME$`
 
@@ -1557,7 +1451,6 @@ Returns current hostname or hostname of argument passed.  Supports `OSPROBER` pl
 telehack
 ```
 
-##
 
 ### `TH_NETSTAT$`
 
@@ -1567,7 +1460,6 @@ Returns current netstat, or netstat of hostname passed as argument, separated by
 adaptex cotds mimsy oddjob oracle tandem veritas
 ```
 
-##
 
 ### `TH_MD5HEX$`
 
@@ -1580,7 +1472,6 @@ Returns md5 hex of argument passed as hex
 901890a8e9c8cf6d5a1a542b229febff
 ```
 
-##
 
 ### `TH_MD5BASE64$`
 
@@ -1593,7 +1484,6 @@ Returns md5 hex of argument passed as base64
 kBiQqOnIz21aGlQrIp/r/w
 ```
 
-##
 
 ### `TH_B64E$`
 
@@ -1606,7 +1496,6 @@ Returns argument encoded to base64
 VGVsZWhhY2s=
 ```
 
-##
 
 ### `TH_B64D$`
 
@@ -1619,7 +1508,6 @@ Returns argument decoded from base64
 Telehack
 ```
 
-##
 
 ### `TH_EXEC`
 
@@ -1639,9 +1527,8 @@ bar
 The iguana from Austin will go to Austin.
 ```
 
-_Note that variables assigned with `TH_EXEC` will have trailing `CRLF` characters, much like back-ticks in shell scripts._
+_Note: variables assigned with `TH_EXEC` will have trailing `CRLF` characters, much like back-ticks in bash scripts._
 
-##
 
 ### `TH_RE(txt$,pat$,countmode$,ignorecase)`
 
@@ -1654,7 +1541,7 @@ Number context, returns a boolean (1 or 0) depending on regex match
 it matches
 ```
 
-_If countmode is true, returns number of matches_
+_If countmode is true, returns number of matches:_
 
 ```
 10  PRINT TH_RE( "HELLO", "L", 1 )
@@ -1663,7 +1550,6 @@ _If countmode is true, returns number of matches_
  2
 ```
 
-##
 
 ### `TH_RE$(txt$,pat$,ind$,ignorecase$)`
 
@@ -1676,7 +1562,7 @@ String context, returns single captured group of match
 hello
 ```
 
-_If an index `n` is provided, the string returned will be the `n`th captured group_
+_If an index `n` is provided, the string returned will be the `n`th captured group:_
 
 ```
 10  PRINT TH_RE$( "FOO BAR BAZ BINGO BANGO", "BA...", 2 )
@@ -1685,7 +1571,6 @@ _If an index `n` is provided, the string returned will be the `n`th captured gro
 BANGO
 ```
 
-##
 
 ### `TH_REV$(s$)`
 
@@ -1698,7 +1583,6 @@ Returns the string `s$` in reverse order
 reviled
 ```
 
-##
 
 ### `TH_SED$(txt$,find$,replace$,opt$)`
 
@@ -1716,7 +1600,6 @@ Available options:
 fizz bizz
 ```
 
-##
 
 ### `TH_SPRINTF$(fmt$,[...])`
 
@@ -1812,7 +1695,6 @@ Alex      Ferrari     Italy
 Wumpus    Tesla       United States
 ```
 
-##
 
 ### `TH_UUD$(s$)`
 
@@ -1825,7 +1707,6 @@ Decodes a uuencoded string
 foo
 ```
 
-##
 
 ### `TH_UUE$(s$)`
 
@@ -1838,7 +1719,6 @@ Returns uuencoded form of input string
 #9F]O
 ```
 
-##
 
 ### `TIM(n)`
 
@@ -1857,7 +1737,6 @@ Returns values of time and date depending on `n`
  29
 ```
 
-##
 
 ### `TIME$`
 
@@ -1870,7 +1749,6 @@ Returns the local system time
 07:49:38
 ```
 
-##
 
 ### `TIMER`
 
@@ -1883,7 +1761,6 @@ Returns the number of seconds since midnight
  28210
 ```
 
-##
 
 ### `TYP(n)`
 
@@ -1918,19 +1795,16 @@ Return values:
 
 _See also [`EOF`](#eofn)._
 
-##
 
 ### `TROFF`
 
 Stops tracing of program statements.  Useful for debugging
 
-##
 
 ### `TRON`
 
 Starts tracing of program statements.  Useful for debugging
 
-##
 
 ### `UPS$(string)`
 
@@ -1943,7 +1817,6 @@ Returns the uppercase value of the given string
 HELLO
 ```
 
-##
 
 ### `USER$`
 
@@ -1956,17 +1829,15 @@ Returns the current logged in user
 archer
 ```
 
-##
 
 ### `WIDTH`
 
 Returns your terminal width
 
-##
 
 ### `VAL(s$)`
 
-Returns the numerical value of `s$`
+Returns the numeric value of `s$`
 
 ```
 10  PRINT VAL("12345")
@@ -1975,7 +1846,6 @@ Returns the numerical value of `s$`
  12345
 ```
 
-##
 
 ## 6. FAQ
 
@@ -1996,7 +1866,6 @@ Now you can call it with:
  0
 ```
 
-##
 
 ### **Q:** How do I read from a file?
 
@@ -2011,7 +1880,6 @@ Now you can call it with:
 60  CLOSE #1
 ```
 
-##
 
 ### **Q:** How do I write to a file?
 
@@ -2023,7 +1891,6 @@ Now you can call it with:
 30  CLOSE #1
 ```
 
-##
 
 ### **Q:** How do I _append_ a file?
 
@@ -2038,7 +1905,6 @@ Now you can call it with:
 60  CLOSE #1
 ```
 
-##
 
 ### **Q:** How do I create a BBS?
 
@@ -2046,13 +1912,11 @@ Now you can call it with:
 
 Your BBS baud-rate must be 115200 (11.520 kbps) in order for it to appear in the Telehack netstat.  To gain access to faster baud-rates requires you to upgrade your modem firmware (both `SYSADM` and `BLUEBOX` badges are required.)
 
-##
 
 ### **Q:** How do I split a string into an array?
 
  **A:** There are two methods. The [Traditional "Pure BASIC" Method](#traditional-pure-basic-method), and the [Modern RegEx Method](#modern-regex-method).  Both methods are detailed below.
 
-##
 
 #### Traditional "Pure BASIC" Method
 
@@ -2088,7 +1952,6 @@ See the example below:
 240  GOTO 160
 ```
 
-##
 
 #### Modern RegEx Method
 
@@ -2112,13 +1975,11 @@ Imhotep
 
 _The above example uses both [`TH_RE`](#th_retxtpatcountmodeignorecase) (number context), and [`TH_RE$`](#th_retxtpatindignorecase) (string context)._
 
-##
 
 ### **Q:** How can I learn how to write regular expressions?
 
  **A:** The executable `GOLF.EXE` contains multiple lessons on regular expressions.  You can also find many RegEx-related challenges in the `DOJO`.
 
-##
 
 ### **Q:** How do I generate a random number?
 
@@ -2133,7 +1994,6 @@ _The above example uses both [`TH_RE`](#th_retxtpatcountmodeignorecase) (number 
 
 _The above example is a pseudorandom number generator, with [`TIMER`](#timer) being the seed._
 
-##
 
 ### **Q:** I would like to code in BASIC, but all those line numbers are messy!
 
@@ -2182,12 +2042,10 @@ Goodbye!
 
 Additionally, there is a script written by archer which allows you to use labels instead of numbers.  You can find it on [archer's GitHub](https://p85.github.io/renumber/renumber.html).
 
-##
 
 ### **Q:** How do I use `COMM.EXE` via BASIC?
  **A:** Refer to [this guide by archer](https://github.com/telehack-foundation/.github/blob/main/comm.md).
 
-##
 
 ## 7. ANSI Escape Sequences
 
@@ -2197,96 +2055,97 @@ An ANSI escape sequence is a sequence of ASCII characters, the first two of whic
 
 The character or characters following the escape and left-bracket characters specify an alphanumeric code that controls a keyboard or display function.
 
-For example, these can be used instead of, or in addition to [`LOCATE`](#locate-y-x) (for locating the cursor in the window); [`COLOR`](#colora-b) (for setting text and background colors) and getting the user's arrow-key input.
+For example, these can be used instead of, or in addition to [`LOCATE`](#locate-y-x) (for locating the cursor in the window); [`COLOR`](#colora-b) (for setting text and background colours) and getting the user's arrow-key input.
 
-Using escape sequences can give you greater control over how your program displays its output.  Be aware that not all terminal types support some of these sequences, and your terminal must support 256-bit colors in order to display such colours.
+Using escape sequences can give you greater control over how your program displays its output.  Be aware that not all terminal types support some of these sequences, and your terminal must support 256-bit colours in order to display such colours.
 
 Standard escape codes are prefixed with Escape, which is represented in the following ways:
 
- | Format      | Value
- | ------      | -----
- | Ctrl-Key    | `^[` (Hold `Ctrl` and type a left square bracket)
- | Octal       | `\033`
- | Unicode     | `\u001b`
- | Hexadecimal | `\'x1b`
- | Decimal     | `27` (`chr$(27)`)
+| Format      | Value             |
+| ------      | -----             |
+| Ctrl-Key    | `^[`              |
+| Octal       | `\033`            |
+| Unicode     | `\u001b`          |
+| Hexadecimal | `\'x1b`           |
+| Decimal     | `27` (`chr$(27)`) |
 
 This is then followed by the command, somtimes delimited by opening square bracket `[` known as a Control Sequence Introducer (CSI), optionally followed by arguments and the command itself.
 
-Arguments are delimeted by semi colon (`;`), for example `boldred$ = chr$(27) + "[1;31m"`.
+Arguments are delimeted by semi colon (`;`).
+
+For example `boldred$ = chr$(27) + "[1;31m"`.
 
 ### General ASCII Codes
 
-| Name | Decimal | Octal | Hex    | C-escape | Ctrl-Key | Description
-| ---- | ------- | ----- | ---    | -------- | -------- | -----------
-| `BEL`| 7       | 007   | `0x07` | `\a`     | `^G`     | Terminal bell
-| `BS` | 8       | 010   | `0x08` | `\b`     | `^H`     | Backspace
-| `HT` | 9       | 011   | `0x09` | `\t`     | `^I`     | Horizontal TAB
-| `LF` | 10      | 012   | `0x0A` | `\n`     | `^J`     | Linefeed
-| `VT` | 11      | 013   | `0x0B` | `\v`     | `^K`     | Vertical TAB
-| `FF` | 12      | 014   | `0x0C` | `\f`     | `^L`     | Formfeed
-| `CR` | 13      | 015   | `0x0D` | `\r`     | `^M`     | Carriage return
-| `ESC`| 27      | 033   | `0x1B` | `\e`     | `^[`     | Escape character
-| `DEL`| 127     | 177   | `0x7F` | `<none>` | `<none>` | Delete character
+| Name | Decimal | Octal | Hex    | C-escape | Ctrl-Key | Description      |
+| ---- | ------- | ----- | ---    | -------- | -------- | -----------      |
+| `BEL`| 7       | 007   | `0x07` | `\a`     | `^G`     | Terminal bell    |
+| `BS` | 8       | 010   | `0x08` | `\b`     | `^H`     | Backspace        |
+| `HT` | 9       | 011   | `0x09` | `\t`     | `^I`     | Horizontal TAB   |
+| `LF` | 10      | 012   | `0x0A` | `\n`     | `^J`     | Linefeed         |
+| `VT` | 11      | 013   | `0x0B` | `\v`     | `^K`     | Vertical TAB     |
+| `FF` | 12      | 014   | `0x0C` | `\f`     | `^L`     | Formfeed         |
+| `CR` | 13      | 015   | `0x0D` | `\r`     | `^M`     | Carriage return  |
+| `ESC`| 27      | 033   | `0x1B` | `\e`     | `^[`     | Escape character |
+| `DEL`| 127     | 177   | `0x7F` | `<none>` | `<none>` | Delete character |
 
 _Note: Some control escape sequences, like `\e` for ESC, are not guaranteed to work in all languages and compilers. It is recommended to use the decimal, octal or hex representation as escape code._
 
 _The Ctrl-Key representation is simply associating the non-printable characters from ASCII code 1 with the printable characters from ASCII code 65 ("A"). ASCII code 1 would be `^A` (Ctrl-A), while ASCII code 7 (BEL) would be `^G` (Ctrl-G). This is a common representation (and input method) and historically comes from one of the VT series of terminals._
 
-##
 
 ### Cursor Controls
 
-| Sequence               | Description
-| --------               | -----------
-| `ESC[H`                | Moves cursor to home position (0, 0)
-| `ESC[{line};{column}H` | Moves cursor to line #, column #
-| `ESC[{line};{column}f` | Moves cursor to line #, column #
-| `ESC[#A`               | Moves cursor up # lines
-| `ESC[#B`               | Moves cursor down # lines
-| `ESC[#C`               | Moves cursor right # columns
-| `ESC[#D`               | Moves cursor left # columns
-| `ESC[#E`               | Moves cursor to start of next line, # lines down
-| `ESC[#F`               | Moves cursor to start of previous line, # lines up
-| `ESC[#G`               | Moves cursor to column #
-| `ESC[6n`               | Request cursor position (reports as ESC[#;#R)
-| `ESC7`                 | Save cursor position (DEC)
-| `ESC8`                 | Restores the cursor to the last saved position (DEC)
-| `ESC[s`                | Save cursor position (SCO)
-| `ESC[u`                | Restores the cursor to the last saved position (SCO)
-| `ESC[?25h`             | Show cursor
-| `ESC[?25l`             | Hide cursor
+| Sequence               | Description                                          |
+| --------               | -----------                                          |
+| `ESC[H`                | Moves cursor to home position (0, 0)                 |
+| `ESC[{line};{column}H` | Moves cursor to line #, column #                     |
+| `ESC[{line};{column}f` | Moves cursor to line #, column #                     |
+| `ESC[#A`               | Moves cursor up # lines                              |
+| `ESC[#B`               | Moves cursor down # lines                            |
+| `ESC[#C`               | Moves cursor right # columns                         |
+| `ESC[#D`               | Moves cursor left # columns                          |
+| `ESC[#E`               | Moves cursor to start of next line, # lines down     |
+| `ESC[#F`               | Moves cursor to start of previous line, # lines up   |
+| `ESC[#G`               | Moves cursor to column #                             |
+| `ESC[6n`               | Request cursor position (reports as ESC[#;#R)        |
+| `ESC7`                 | Save cursor position (DEC)                           |
+| `ESC8`                 | Restores the cursor to the last saved position (DEC) |
+| `ESC[s`                | Save cursor position (SCO)                           |
+| `ESC[u`                | Restores the cursor to the last saved position (SCO) |
+| `ESC[?25h`             | Show cursor                                          |
+| `ESC[?25l`             | Hide cursor                                          |
 
 _Note: Some sequences, like saving and restoring cursors, are private sequences and are not standardized. While some terminal emulators (i.e. xterm and derived) support both SCO and DEC sequences, they are likely to have different functionality. It is therefore recommended to use DEC sequences._
 
 ### Erase Functions
 
-| Sequence | Description
-| -------- | -----------
-| `ESC[J`  | Clears the screen
-| `ESC[0J` | Clears from cursor until end of screen
-| `ESC[1J` | Clears from cursor to beginning of screen
-| `ESC[2J` | Clears entire screen
-| `ESC[K`  | Clears the current line
-| `ESC[0K` | Clears from cursor to end of line
-| `ESC[1K` | Clears from cursor to start of line
-| `ESC[2K` | Clears entire line
+| Sequence | Description                               |
+| -------- | -----------                               |
+| `ESC[J`  | Clears the screen                         |
+| `ESC[0J` | Clears from cursor until end of screen    |
+| `ESC[1J` | Clears from cursor to beginning of screen |
+| `ESC[2J` | Clears entire screen                      |
+| `ESC[K`  | Clears the current line                   |
+| `ESC[0K` | Clears from cursor to end of line         |
+| `ESC[1K` | Clears from cursor to start of line       |
+| `ESC[2K` | Clears entire line                        |
 
 ### Colours / Graphics Mode / Character Attributes
 
-| Sequence          | Reset Sequence | Description
-| --------          | -------------- | -----------
-| `ESC[1;34;{...}m` |                | Set graphics modes for cell
-| `ESC[m`           |                | Reset all modes (styles and colours)
-| `ESC[0m`          |                | Same as above
-| `ESC[1m`          | `ESC[22m`      | Set bold mode.
-| `ESC[2m`          | `ESC[22m`      | Set dim/faint mode.
-| `ESC[3m`          | `ESC[23m`      | Set italic mode.
-| `ESC[4m`          | `ESC[24m`      | Set underline mode.
-| `ESC[5m`          | `ESC[25m`      | Set blinking mode
-| `ESC[7m`          | `ESC[27m`      | Set inverse/reverse mode
-| `ESC[8m`          | `ESC[28m`      | Set hidden/invisible mode
-| `ESC[9m`          | `ESC[29m`      | Set strikethrough mode.
+| Sequence          | Reset Sequence | Description                          |
+| --------          | -------------- | -----------                          |
+| `ESC[1;34;{...}m` |                | Set graphics modes for cell          |
+| `ESC[m`           |                | Reset all modes (styles and colours) |
+| `ESC[0m`          |                | Same as above                        |
+| `ESC[1m`          | `ESC[22m`      | Set bold mode.                       |
+| `ESC[2m`          | `ESC[22m`      | Set dim/faint mode.                  |
+| `ESC[3m`          | `ESC[23m`      | Set italic mode.                     |
+| `ESC[4m`          | `ESC[24m`      | Set underline mode.                  |
+| `ESC[5m`          | `ESC[25m`      | Set blinking mode                    |
+| `ESC[7m`          | `ESC[27m`      | Set inverse/reverse mode             |
+| `ESC[8m`          | `ESC[28m`      | Set hidden/invisible mode            |
+| `ESC[9m`          | `ESC[29m`      | Set strikethrough mode.              |
 
 _Note: Some terminals may not support some of the graphic mode sequences listed above._
 
@@ -2298,18 +2157,18 @@ Most terminals support 8 and 16 colours, as well as 256 (8-bit) colours. These c
 
 #### 8-16 Colours
 
-| Colour  | Foreground | Background
-| ------  | ---------- | ----------
-| Black   | 30         | 40
-| Red     | 31         | 41
-| Green   | 32         | 42
-| Yellow  | 33         | 43
-| Blue    | 34         | 44
-| Magenta | 35         | 45
-| Cyan    | 36         | 46
-| White   | 37         | 47
-| Default | 39         | 49
-| Reset   | 0          | 0
+| Colour  | Foreground | Background |
+| ------  | ---------- | ---------- |
+| Black   | 30         | 40         |
+| Red     | 31         | 41         |
+| Green   | 32         | 42         |
+| Yellow  | 33         | 43         |
+| Blue    | 34         | 44         |
+| Magenta | 35         | 45         |
+| Cyan    | 36         | 46         |
+| White   | 37         | 47         |
+| Default | 39         | 49         |
+| Reset   | 0          | 0          |
 
 _Note: the Reset colour is the reset code that resets all colours and text effects, Use Default colour to reset colours only._
 
@@ -2327,27 +2186,27 @@ Most terminals, apart from the set of 8 regular colours, also support the "brigh
 
 Terminals that support the `aixterm` specification provide bright versions of the ISO colours, without the need to use the bold modifier:
 
-| Colour         | Foreground | Background
-| ------         | ---------- | ----------
-| Bright Black   | 90         | 100
-| Bright Red     | 91         | 101
-| Bright Green   | 92         | 102
-| Bright Yellow  | 93         | 103
-| Bright Blue    | 94         | 104
-| Bright Magenta | 95         | 105
-| Bright Cyan    | 96         | 106
-| Bright White   | 97         | 107
+| Colour         | Foreground | Background |
+| ------         | ---------- | ---------- |
+| Bright Black   | 90         | 100        |
+| Bright Red     | 91         | 101        |
+| Bright Green   | 92         | 102        |
+| Bright Yellow  | 93         | 103        |
+| Bright Blue    | 94         | 104        |
+| Bright Magenta | 95         | 105        |
+| Bright Cyan    | 96         | 106        |
+| Bright White   | 97         | 107        |
 
 #### 256 Colours
 
-The following escape codes tells the terminal to use the given colour (`ID`):
+The following escape codes tells the terminal to use the given colour:
 
-| Sequence         | Description
-| --------         | -----------
-| `ESC[38;5;{ID}m` | Set foreground colour.
-| `ESC[48;5;{ID}m` | Set background colour.
+| Sequence         | Description           |
+| --------         | -----------           |
+| `ESC[38;5;{ID}m` | Set foreground colour |
+| `ESC[48;5;{ID}m` | Set background colour |
 
-Where `ID` should be replaced with the color index from 0 to 255 of the following color table:
+Where `ID` should be replaced with the colour index from 0 to 255 of the following colour table:
 
 <img src="https://underwood.network/telehack/ansi_colours.png" alt="ANSI Colour Table">
 
@@ -2355,16 +2214,16 @@ _Generate this table with the following BASIC code:_
 
 ```
 10  FOR I = 0 TO 255
-20  ? CHR$(27) "[38;5;" STR$(I) "M" I ;
+20  ? CHR$(27) "[38;5;" STR$(I) "m" I ;
 30  IF NOT I MOD 16 THEN ?
 40  NEXT
 ```
 
-This table starts with the original 16 colors (0-15).
+This table starts with the original 16 colours (0-15).
 
-The proceeding 216 colors (16-231) are formed by a 3bpc RGB value offset by 16, packed into a single value.
+The proceeding 216 colours (16-231) are formed by a 3bpc RGB value offset by 16, packed into a single value.
 
-The final 24 colors (232-255) are grayscale starting from a shade slighly lighter than black, ranging up to shade slightly darker than white.
+The final 24 colours (232-255) are grayscale starting from a shade slighly lighter than black, ranging up to shade slightly darker than white.
 
 Some emulators interpret these steps as linear increments (256 / 24) on all three channels, although some emulators may explicitly define these values.
 
@@ -2374,10 +2233,10 @@ More modern terminals supports Truecolor (24-bit RGB), which allows you to set f
 
 These escape sequences are usually not well documented.
 
-| Sequence                | Description
-| --------                | -----------
-| `ESC[38;2;{r};{g};{b}m` | Set foreground colour as RGB.
-| `ESC[48;2;{r};{g};{b}m` | Set background colour as RGB.
+| Sequence                | Description                   |
+| --------                | -----------                   |
+| `ESC[38;2;{r};{g};{b}m` | Set foreground colour as RGB. |
+| `ESC[48;2;{r};{g};{b}m` | Set background colour as RGB. |
 
 _Note: `;38` and `;48` corresponds to the 16 colour sequence and is interpreted by the terminal to set the foreground and background colour respectively, whereas `;2` and `;5` sets the colour format._
 
@@ -2385,14 +2244,14 @@ _Note: `;38` and `;48` corresponds to the 16 colour sequence and is interpreted 
 
 These are some examples of private modes, which are not defined by the specification, but are implemented in most terminals.
 
-| Sequence     | Description
-| --------     | -----------
-| `ESC[?25l`   | Make cursor invisible
-| `ESC[?25h`   | Make cursor visible
-| `ESC[?47l`   | Restore screen
-| `ESC[?47h`   | Save screen
-| `ESC[?1049h` | Enables the alternative buffer
-| `ESC[?1049l` | Disables the alternative buffer
+| Sequence     | Description                     |
+| --------     | -----------                     |
+| `ESC[?25l`   | Make cursor invisible           |
+| `ESC[?25h`   | Make cursor visible             |
+| `ESC[?47l`   | Restore screen                  |
+| `ESC[?47h`   | Save screen                     |
+| `ESC[?1049h` | Enables the alternative buffer  |
+| `ESC[?1049l` | Disables the alternative buffer |
 
 ### DEC Special Graphics
 
@@ -2400,21 +2259,20 @@ DEC Special Graphics is a 7-bit character set developed by Digital Equipment Cor
 
 This was used very often to draw boxes on the VT100 video terminal and the many emulators, and used by bulletin board software.
 
-| Sequence  | Description
-| --------  | -----------
-| `ESC(0`   | Enable DEC special graphics
-| `ESC(B`   | Disable DEC special graphics
+| Sequence  | Description                  |
+| --------  | -----------                  |
+| `ESC(0`   | Enable DEC special graphics  |
+| `ESC(B`   | Disable DEC special graphics |
 
-##
 
-### Color Examples (8-bit)
+### Colour Examples (8-bit)
 
 ```
 10  PRINT CHR$(27) + "[92mThe foreground is green" CHR$(27) "[m"
 20  PRINT CHR$(27) + "[103mThe background is yellow" CHR$(27) "[m"
 ```
 
-### Color Examples (16-bit)
+### Colour Examples (16-bit)
 
 ```
 10  PRINT CHR$(27) + "[38;5;134mThe foreground is purple" CHR$(27) "[m"
@@ -2435,6 +2293,5 @@ This was used very often to draw boxes on the VT100 video terminal and the many 
 90  GOTO 10
 ```
 
-##
 
 [Back to top](#)
