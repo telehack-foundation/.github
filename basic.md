@@ -6,7 +6,7 @@ Dartmouth DTSS TeleBASIC (c) 1964,1966,1969,1970,1971,1979,2023
 
 ## What is TeleBASIC?
 
-TeleBASIC is the flavour of BASIC (Beginners' All-purpose Symbolic Instruction Code), that is used on [Telehack](https://telehack.com/).  TeleBASIC is based on the original Dartmouth BASIC, but with a large number of additional features, such as support for regular expressions, UNIX timestamps, many common hashing/encoding algorithms, multi-dimensional arrays, and the ability to use alphanumeric indices.
+TeleBASIC is the flavour of BASIC (Beginners' All-purpose Symbolic Instruction Code), used on [Telehack](https://telehack.com/).  TeleBASIC is based on the original Dartmouth BASIC, but with a large number of additional features, such as support for regular expressions, UNIX timestamps, many common hashing/encoding algorithms, multi-dimensional arrays, and the ability to use alphanumeric indices.
 
 Features from other types of BASIC such as HP2000 Access BASIC and Commodore BASIC have been added for increased compatibility and functionality.
 
@@ -1023,7 +1023,6 @@ Renumbers the statements of the current program in memory. When optional paramet
 
    10  GOTO 20
    20  END
-
 ```
 
 ### `RESTORE`
@@ -2068,8 +2067,8 @@ Standard escape codes are prefixed with Escape, which is represented in the foll
 | Ctrl-Key    | `^[`              |
 | Octal       | `\033`            |
 | Unicode     | `\u001b`          |
-| Hexadecimal | `\'x1b`           |
-| Decimal     | `27` (`chr$(27)`) |
+| Hexadecimal | `\x1b`            |
+| Decimal     | `27`              |
 
 This is then followed by the command, somtimes delimited by opening square bracket `[` known as a Control Sequence Introducer (CSI), optionally followed by arguments and the command itself.
 
