@@ -236,18 +236,6 @@ Returns the absolute value of the specified value `n`
 Currently not implemented, does nothing
 
 
-### `ASC(character)`, `NUM(character)`
-
-Returns the ASCII-Code for its equivalent character
-
-```
-10  PRINT ASC(" ")
-```
-```
- 32
-```
-
-
 ### `ARG$`
 
 A string variable this is populated with a string containing the command line arguments when a BASIC program is run from the shell command prompt.
