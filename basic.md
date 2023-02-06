@@ -110,47 +110,69 @@ ped /tablen=<n>  set tab length to <n>
 
 - `AND` (bitwise "and" operation)
 
-    ```
-    10  PRINT 5 AND 1
-    ```
-
-- `AND` (using within "if" to check if both conditions are true)
-
-    ```
-    10  A% = 3 : B% = 5
-    20  IF A% = 3 AND B% = 5 THEN PRINT "Both conditions are true"
-    ```
-
 - `OR` (bitwise "or" operation)
-
-    ```
-    10  PRINT 5 OR 1
-    ```
-
-- `OR` (using within "if" to check if one condition is true)
-
-    ```
-    10  A% = 3 : B% = 5
-    20  IF A% = 3 OR B% = 5 THEN PRINT "At least one condition is true"
-    ```
 
 - `XOR` (exclusive "or" operation)
 
-    ```
-    10  PRINT 1 XOR 0
-    ```
-
 - `NOT` (negation)
 
-    ```
-    10  PRINT NOT 0
-    ```
+- `EQV` (material equivalence)
+
+- `IMP` (implication)
+
+#### Results Returned by Logical Operations
+
+Operation | Value | Value | Result
+--------- | ----- | ----- | ------
+`NOT`     | `X`   |       | `NOT X`
+`NOT`     | True  |       | False
+`NOT`     | False |       | True
+
+Operation | Value | Value | Result
+--------- | ----- | ----- | ------
+`AND`     | `X`   | `Y`   | `X AND Y`
+`AND`     | True  | True  | True
+`AND`     | True  | False | False
+`AND`     | False | True  | False
+`AND`     | False | False | False
+
+Operation | Value | Value | Result
+--------- | ----- | ----- | ------
+`OR`      | `X`   | `Y`   | `X OR Y`
+`OR`      | True  | True  | True
+`OR`      | True  | False | True
+`OR`      | False | True  | True
+`OR`      | False | False | False
+
+Operation | Value | Value | Result
+--------- | ----- | ----- | ------
+`XOR`     | `X`   | `Y`   | `X XOR Y`
+`XOR`     | True  | True  | False
+`XOR`     | True  | False | True
+`XOR`     | False | True  | True
+`XOR`     | False | False | False
+
+Operation | Value | Value | Result
+--------- | ----- | ----- | ------
+`EQV`     | `X`   | `Y`   | `X EQV Y`
+`EQV`     | True  | True  | True
+`EQV`     | True  | False | False
+`EQV`     | False | True  | False
+`EQV`     | False | False | True
+
+Operation | Value | Value | Result
+--------- | ----- | ----- | ------
+`IMP`     | `X`   | `Y`   | `X IMP Y`
+`IMP`     | True  | True  | True
+`IMP`     | True  | False | False
+`IMP`     | False | True  | True
+`IMP`     | False | False | True
 
 ### Arithmetic Operators
 
 TeleBASIC supports the following standard mathematical operators:
 
-`()`, `^`, `mod`, `/`, `*`, `+`, and `-`.
+`()`, `^`, `**`, `mod`, `/`, `*`, `+`, and `-`.
 
 
 ## 3. Variables and Data Types
