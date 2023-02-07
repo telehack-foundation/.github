@@ -485,6 +485,8 @@ Currently not implemented, does nothing
 
 Returns -1 if the file pointer in file number `n` is currently at the end of the document, otherwise returns 0.
 
+The reason for -1 being used to denote truth is that -1 is 11111111 in binary, and conversely, 0 is 00000000.
+
 _See also [`TYP`](#typn)._
 
 
@@ -1579,6 +1581,9 @@ _If an index `n` is provided, the string returned will be the `n`th captured gro
 ```
 BANGO
 ```
+_In the above example, the match returned is not "BAZ B", since the "B" in "BAZ" has already been consumed by the first match._
+
+_If the index supplied is 0, it will return the final match.  If no index is supplied, it will return the first match._
 
 
 ### `TH_REV$(s$)`
@@ -1863,16 +1868,16 @@ Returns the numeric value of `s$`
 **A:** Create the function with:
 
 ```
-DEF FNNAND(v1, v2) = NOT (v1 AND v2)
+DEF FNNAND( A, B ) = NOT ( A AND B )
 ```
 
 Now you can call it with:
 
 ```
-10  PRINT FNNAND(69, 420)
+10  PRINT FNNAND( 0, 0 )
 ```
 ```
- 0
+ 1
 ```
 
 
@@ -1882,9 +1887,9 @@ Now you can call it with:
 
 ```
 10  OPEN "filename.txt", AS #1
-20  IF EOF(1) = -1 THEN GOTO 60
-30  INPUT# 1, A
-40  PRINT A
+20  IF EOF(1) THEN GOTO 60
+30  INPUT# 1, A$
+40  PRINT A$
 50  GOTO 20
 60  CLOSE #1
 ```
@@ -1907,8 +1912,8 @@ Now you can call it with:
 
 ```
 10  OPEN "filename.txt", AS #1
-20  IF EOF(1) = -1 THEN GOTO 50
-30  INPUT# 1, DUMPP$
+20  IF EOF(1) THEN GOTO 50
+30  INPUT# 1, DUMP$
 40  GOTO 20
 50  PRINT# 1, "We are now at the EOF, and appending stuff"
 60  CLOSE #1
