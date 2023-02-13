@@ -30,10 +30,6 @@ Features from other types of BASIC such as HP2000 Access BASIC and Commodore BAS
 
 TeleBASIC has a wide user-base and is actively maintained by members of [The Telehack Foundation](https://github.com/orgs/telehack-foundation/people/).
 
-### What's with the fish?
-
-That's our mascot, Bassy the dart-mouthed bass.
-
 ## Table of Contents
 
  1. [Set Up Your Editor for BASIC Programming](#1-set-up-your-editor-for-basic-programming)
@@ -2267,7 +2263,13 @@ Find it on [archer's GitHub](https://p85.github.io/renumber/renumber.html).
 
 
 ### **Q:** How do I use `COMM.EXE` via BASIC?
+
 **A:** Refer to [this guide by archer](https://telehack.com/r/pvELT).
+
+
+### **Q:** What's with the fish?
+
+**A:** That's our mascot, Bassy the dart-mouthed bass.
 
 
 ## 7. ANSI Escape Sequences
