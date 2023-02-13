@@ -1,6 +1,24 @@
+![TeleBASIC](https://raw.githubusercontent.com/telehack-foundation/.github/main/profile/svg/telebasic.svg)
+
 # TeleBASIC Reference Guide
 
 ```
+                               +*#+=.                       
+              -=++==-:.:-    :@@@@@@%-.                     
+            +@@@%##@@@@@@#. .******###+.                    
+  :-:       #@@%###*:=*+*#%@@@@@@@@@@@@@@%#+=:.             
+ *@@@%+     .@@@@#-=#@@@@@@@@@@@@@@@@@@@@*=--+@@#+-.        
+ -@@@%#*:     ..-#@@@@@@@@@@@@@@@@@@@@%-=**:-@@@= :@@%*:    
+  +@@%%%+*. :=#@@@@@@@@@@@@@@@@%@@@@@+ *@@:=%@@@@#%*#+-**.  
+   #@@@*=.*@@@@@@@@@@@@%#*****=***##@:=-@@.**@@@+:=#-#@=    
+    #@##++@@@@@#####***#%%@@@@ =@%#%#+:#:#=**#%*=@#:@@#     
+     #@*+:=+**#@@@@@@@@@@@@@@@%--#%++-.=@:-:+#####%%#**-+#  
+      @#+=+=+=:*++++**#@@@@@@@@@@**==*@+=@#=.   .=+*###*=.  
+      =@*@*   -@@@@@@@@*-+%@@@@@%+#@@#**#=+#@@%%#*+-:       
+      :@@=    .@@@@@#%*.    ....=@@@@#+-                    
+       @=       ...==.         -#++++##                     
+       :                           =+-                      
+
 Dartmouth DTSS TeleBASIC (c) 1964,1966,1969,1970,1971,1979,2023
 ```
 
@@ -12,6 +30,9 @@ Features from other types of BASIC such as HP2000 Access BASIC and Commodore BAS
 
 TeleBASIC has a wide user-base and is actively maintained by members of [The Telehack Foundation](https://github.com/orgs/telehack-foundation/people/).
 
+### What's with the fish?
+
+That's our mascot, Bassy the dart-mouthed bas.
 
 ## Table of Contents
 
