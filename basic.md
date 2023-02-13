@@ -3,21 +3,21 @@
 # TeleBASIC Reference Guide
 
 ```
-                               +*#+=.                       
-              -=++==-:.:-    :@@@@@@%-.                     
-            +@@@%##@@@@@@#. .******###+.                    
-  :-:       #@@%###*:=*+*#%@@@@@@@@@@@@@@%#+=:.             
- *@@@%+     .@@@@#-=#@@@@@@@@@@@@@@@@@@@@*=--+@@#+-.        
- -@@@%#*:     ..-#@@@@@@@@@@@@@@@@@@@@%-=**:-@@@= :@@%*:    
-  +@@%%%+*. :=#@@@@@@@@@@@@@@@@%@@@@@+ *@@:=%@@@@#%*#+-**.  
-   #@@@*=.*@@@@@@@@@@@@%#*****=***##@:=-@@.**@@@+:=#-#@=    
-    #@##++@@@@@#####***#%%@@@@ =@%#%#+:#:#=**#%*=@#:@@#     
-     #@*+:=+**#@@@@@@@@@@@@@@@%--#%++-.=@:-:+#####%%#**-+#  
-      @#+=+=+=:*++++**#@@@@@@@@@@**==*@+=@#=.   .=+*###*=.  
-      =@*@*   -@@@@@@@@*-+%@@@@@%+#@@#**#=+#@@%%#*+-:       
-      :@@=    .@@@@@#%*.    ....=@@@@#+-                    
-       @=       ...==.         -#++++##                     
-       :                           =+-                      
+                               +*#+=.
+              -=++==-:.:-    :@@@@@@%-.
+            +@@@%##@@@@@@#. .******###+.
+  :-:       #@@%###*:=*+*#%@@@@@@@@@@@@@@%#+=:.
+ *@@@%+     .@@@@#-=#@@@@@@@@@@@@@@@@@@@@*=--+@@#+-.
+ -@@@%#*:     ..-#@@@@@@@@@@@@@@@@@@@@%-=**:-@@@= :@@%*:
+  +@@%%%+*. :=#@@@@@@@@@@@@@@@@%@@@@@+ *@@:=%@@@@#%*#+-**.
+   #@@@*=.*@@@@@@@@@@@@%#*****=***##@:=-@@.**@@@+:=#-#@=
+    #@##++@@@@@#####***#%%@@@@ =@%#%#+:#:#=**#%*=@#:@@#
+     #@*+:=+**#@@@@@@@@@@@@@@@%--#%++-.=@:-:+#####%%#**-+#
+      @#+=+=+=:*++++**#@@@@@@@@@@**==*@+=@#=.   .=+*###*=.
+      =@*@*   -@@@@@@@@*-+%@@@@@%+#@@#**#=+#@@%%#*+-:
+      :@@=    .@@@@@#%*.    ....=@@@@#+-
+       @=       ...==.         -#++++##
+       :                           =+-
 
 Dartmouth DTSS TeleBASIC (c) 1964,1966,1969,1970,1971,1979,2023
 ```
@@ -261,6 +261,192 @@ In addition to this, TeleBASIC allows for creation of multi-dimensional arrays, 
 
 
 ## 5. Command Overview
+
+### Index
+
+#### A
+
+- [`ACCESS`](#access)  Currently not implemented, does nothing
+- [`ARG$`](#arg)  A string containing all command line arguments
+- [`ARGV$(n)`](#argvn)  An array containing all of the arguments passed to the program
+- [`ARGC%`](#argc)  The number of arguments passed to the program
+- [`ASC(s$)`](#ascs)  Returns the ASCII value of the first character in the string `s$`
+- [`ATN(n)`](#atnn)  Returns the arctangent of the specified value `n`
+
+#### B
+
+- [`BIN$(n)`](#binn)  Returns the binary representation of the integer `n` as a string
+- [`BRK(n)`](#brkn)  Currently not implemented, does nothing
+
+#### C
+
+- [`CALL`](#call)  Currently not implemented, does nothing
+- [`CHR$(n)`](#chrn)  Convert an ASCII code `n` to its equivalent character
+- [`CINT(n)`](#cintn)  Returns the nearest integer of the specified value
+- [`CIRCLE`](#circle)  Currently not implemented, does nothing
+- [`COLOR(a, b)`](#colora-b)  Changes the colours of the terminal
+- [`COS(n)`](#cosn)  Returns the cosinus of a specified value `n` in radians
+- [`CSNG(n)`](#csngn)  Convert a specified value `n` to a single precision number
+
+#### D
+
+- [`DATA n...`](#data-n) Store variables accessed by the program [`READ`](#read-n) statements
+- [`DEF FNname(Argument) = Expression`](#def-fnnameargument--expression)  Define a function
+- [`DEFDBL (Variable)`](#defdbl-variable)  Currently not implemented, does nothing
+- [`DEFINT (Variable)`](#defint-variable)  Currently not implemented, does nothing
+- [`DEFSNG (Variable)`](#defsng-variable)  Currently not implemented, does nothing
+- [`DEFSTR (Variable)`](#defstr-variable)  Currently not implemented, does nothing
+- [`DIM (Variable)`](#dim-variable)  Currently not implemented, does nothing
+- [`DIR$`](#dir)  Returns the filenames in your local directory, separated by spaces
+- [`DO`](#do)  Currently not implemented, does nothing
+- [`DRAW`](#draw)  Currently not implemented, does nothing
+
+#### E
+
+- [`EOF(n)`](#eofn)  Returns file pointer information
+- [`EXP(n)`](#expn)  Return base of natural logarithms to the power of `n`
+
+#### F
+
+- [`FOR x = startValue TO maxValue [STEP n]`](#for-x--startvalue-to-maxvalue-step-n)  Execute a series of instructions
+
+#### G
+
+- [`GOSUB (LineNumber)`](#gosub-linenumber)  Branch to a subroutine and return
+- [`GOTO (LineNumber)`](#goto-linenumber)  Branch unconditionally to a specified line number
+
+#### H
+
+- [`HEIGHT`](#height)  Returns your terminal height
+- [`HEX$(n)`](#hexn)  Returns hexadecimal value of the specified number `n`
+
+#### I
+
+- [`IF expression THEN statements`](#if-expression-then-statements)  Make a decision regarding program flow
+- [`INKEY$`](#inkey)  Returns one character read from the terminal
+- [`INPUT prompt$, var$`](#input-prompt-var)  Read user input
+- [`INPUT FileNo, var$`](#input-fileno-var)  Reads a line from an open file
+- [`INSTR(string$, search$, startPos)`](#instrstring-search-startpos)  Returns the position of a substring
+- [`INT (n)`](#int-n)  Truncate a value to a whole number
+- [`ITM(fileNumber)`](#itmfilenumber)  Returns the number of a data item
+
+#### L
+
+- [`LEFT$(s$, n)`](#lefts-n)  Returns the leftmost `n` characters of the specified string `s$`
+- [`LEN(s$)`](#lens)  Returns the number of characters in the specified string
+- [`LET Variable = Value`](#let-variable--value)  Assigns a value to a variable
+- [`LIN(n)`](#linn)  Returns `n` newlines
+- [`LOCATE y, x`](#locate-y-x)  Change the cursor position to `y`, `x`
+- [`LOG(n)`](#logn)  Returns the natural logarithm of `n`
+- [`LOG10(n)`](#log10n)  Returns the natural logarithm of `n` (base 10)
+
+#### M
+
+- [`MID$(s$, n, [l])`](#mids-n-l)  Returns a string of `l` characters from `s$`
+
+#### N
+
+- [`NINT(n)`](#nintn)  Returns the nearest integer of the specified value
+- [`NUM(s$)`](#nums)  Returns the ASCII value of the first character in the string `s$`
+
+#### O
+
+- [`OCT$(n)`](#octn)  Returns a octal value of `n`
+- [`OPEN filename$, AS fileNumber`](#open-filename-as-filenumber)  Opens a file
+- [`ON NUMBER%`](#on-number)  Jump conditionally to a line number based on value given
+
+#### P
+
+- [`PCLEAR0`](#pclear0)  Currently not implemented, does nothing
+- [`PCLEAR1`](#pclear1)  Currently not implemented, does nothing
+- [`PEEK(n)`](#peekn)  Read a value from the specified memory location `n`
+- [`PLAY`](#play)  Currently not implemented, does nothing
+- [`PMODE0`](#pmode0)  Currently not implemented, does nothing
+- [`POKE n, m`](#poke-n-m)  Write a byte of data `m` into the specified memory location `n`
+- [`POLKEY$(n)`](#polkeyn)  Returns one character read from the terminal
+- [`PORT%`](#port)  Returns the port from the currently logged in user
+- [`POS(s1$,s2$)`](#poss1s2)  Returns the position of a substring
+- [`PRINT expression`](#print-expression)  Prints an expression to the screen
+- [`PUT`](#put)  Currently not implemented, does nothing
+
+#### R
+
+- [`R2D(n)`](#r2dn)  Converts `n` radians to degrees
+- [`READ n...`](#read-n)  or a file and assign to variable
+- [`REC(n)`](#recn)  in the specified file
+- [`RENUMBER [start,[inc]`](#renumber-startinc)  Renumbers the statements of the current program
+- [`RESTORE`](#restore)  statements to be reread
+- [`RETURN`](#return)  Return from a subroutine
+- [`RIGHT$(s$, n)`](#rights-n)  Returns the rightmost `n` characters of `s$`
+- [`RND(n)`](#rndn)  Returns a random number
+
+#### S
+
+- [`SCRATCH`](#scratch)  Delete a file from the disk
+- [`SCREEN`](#screen)  Currently not implemented, does nothing
+- [`SGN(n)`](#sgnn)  Returns the sign of the specified value `n`
+- [`SIN(n)`](#sinn)  Returns the trigonometric sine of the specified value `n` in radians
+- [`SLEEP n`](#sleep-n)  Pauses the program for `n` seconds
+- [`SOUND`](#sound)  Currently not implemented, does nothing
+- [`SOUNDRND`](#soundrnd)  Currently not implemented, does nothing
+- [`SPACE$(n)`, `SPC$(n)`, `SPA(n)`](#spacen-spcn-span)  Returns `n` spaces
+- [`SQR(n)`](#sqrn)  Returns the square root of `n`
+- [`STOP`](#stop)  Halts the program and prints the current line
+- [`STR$(n)`](#strn)  Returns `n` as a string value
+- [`STRING$(n, s$)`](#stringn-s)  Repeats the string `s$` `n` times
+
+#### T
+
+- [`TAB(n), TAB$(n)`](#tabn-tabn)  Returns `n` spaces (not tabs!)
+- [`TAN(n)`](#tann)  Returns trigonometric tangent of `n` in radians
+- [`TH_SYSLEVEL`](#th_syslevel)  Returns the user's Telehack system level
+- [`TH_HASBADGE(badge$)`](#th_hasbadgebadge)  Returns when the user earned `badge$`
+- [`TH_HASLOGIN(host$)`](#th_hasloginhost)  Returns 1 if the user has login on `host$`
+- [`TH_HASROOT(host$)`](#th_hasroothost)  Returns 1 if the user has root on `host$`
+- [`TH_HASSYSOP(bbs$)`](#th_hassysopbbs)  Returns 1 if the user has sysop on `bbs$`
+- [`TH_HASADMIN(sat$)`](#th_hasadminsat)  Returns 1 if the user has admin on `sat$`
+- [`TH_DEFGROUP$`](#th_defgroup)  Returns the user's defgroup, separated by spaces
+- [`TH_PLAN$`](#th_plan)  Returns the user's `.plan` as a string
+- [`TH_TIME`](#th_time)  Returns the current UNIX timestamp
+- [`TH_LOCALTIME[$]`](#th_localtime)  Returns a human-readable local time for a timestamp
+- [`TH_GMTIME[$]`](#th_gmtime)  Returns a human-readable UTC time for a timestamp
+- [`TH_MODEM$`](#th_modem)  Returns modem information depending on option passed
+- [`TH_HOSTNAME$`](#th_hostname)  Returns current hostname or hostname of argument passed
+- [`TH_NETSTAT$`](#th_netstat)  Returns a netstat, separated by spaces
+- [`TH_MD5HEX$`](#th_md5hex)  Returns md5 hex of argument passed as hex
+- [`TH_MD5BASE64$`](#th_md5base64)  Returns md5 hex of argument passed as base64
+- [`TH_B64E$`](#th_b64e)  Returns argument encoded to base64
+- [`TH_B64D$`](#th_b64d)  Returns argument decoded from base64
+- [`TH_EXEC`](#th_exec)  Executes a shell command and returns to the program
+- [`TH_RE(txt$,pat$,count,case)`](#th_retxtpatcountmodeignorecase)  Returns regex matches
+- [`TH_RE$(txt$,pat$,ind$,case)`](#th_retxtpatindignorecase)  Returns regex matches
+- [`TH_REV$(s$)`](#th_revs)  Returns the string `s$` in reverse order
+- [`TH_SED$(txt$,find$,replace$,opt$)`](#th_sedtxtfindreplaceopt)  Substitute matched substring
+- [`TH_SPRINTF$(fmt$,[...])`](#th_sprintffmt)  Returns a formatted string
+- [`TH_UUD$(s$)`](#th_uuds)  Decodes a uuencoded string
+- [`TH_UUE$(s$)`](#th_uues)  Returns uuencoded form of input string
+- [`TIM(n)`](#timn)  Returns values of time and date depending on `n`
+- [`TIME$`](#time)  Returns the local system time
+- [`TIMER`](#timer)  Returns the number of seconds since midnight
+- [`TYP(n)`](#typn)  Returns the type of the next record in a file
+- [`TROFF`](#troff)  Stops tracing of program statements
+- [`TRON`](#tron)  Starts tracing of program statements
+
+#### U
+
+- [`UPS$(string)`](#upsstring)  Returns the uppercase value of the given string
+- [`USER$`](#user)  Returns the current logged in user
+
+#### V
+
+- [`VAL(s$)`](#vals)  Returns the numeric value of `s$`
+
+#### W
+
+- [`WIDTH`](#width)  Returns your terminal width
+
+
+## Detailed Overview
 
 ### `ABS(n)`
 
@@ -695,9 +881,9 @@ In TeleBASIC this will almost always be 1.
 ```
 
 
-### `LEFT$(String, Number)`
+### `LEFT$(s$, n)`
 
-Returns a string that comprises the left-most specified number characters of a specified string
+Returns the leftmost `n` characters of the specified string `s$`
 
 ```
 10  A$ = "Hello World"
@@ -709,7 +895,7 @@ Hello
 ```
 
 
-### `LEN(String)`
+### `LEN(s$)`
 
 Returns the number of characters in the specified string
 
@@ -735,7 +921,7 @@ Assigns a value to a variable.  Traditionally this is for use with constants, wh
 ```
 
 
-### LIN(n)
+### `LIN(n)`
 
 Returns `n` newlines
 
@@ -751,7 +937,7 @@ B
 
 ### `LOCATE y, x`
 
-Change the cursors position to `y`, `x`
+Change the cursor position to `y`, `x`
 
 ```
 10  LOCATE 5, 5
@@ -832,7 +1018,7 @@ Returns a octal value of `n`
 ```
 
 
-### `OPEN filename¢, AS fileNumber`
+### `OPEN filename$, AS fileNumber`
 
 Opens a file
 
@@ -1562,7 +1748,7 @@ The iguana from Austin will go to Austin.
 _Note: variables assigned with `TH_EXEC` will have trailing `CRLF` characters, much like back-ticks in bash scripts._
 
 
-### `TH_RE(txt$,pat$,countmode$,ignorecase)`
+### `TH_RE(txt$,pat$,countmode,ignorecase)`
 
 Number context, returns a boolean (1 or 0) depending on regex match
 
@@ -1583,7 +1769,7 @@ _If countmode is true, returns number of matches:_
 ```
 
 
-### `TH_RE$(txt$,pat$,ind$,ignorecase$)`
+### `TH_RE$(txt$,pat$,ind,ignorecase)`
 
 String context, returns single captured group of match
 
@@ -1865,11 +2051,6 @@ archer
 ```
 
 
-### `WIDTH`
-
-Returns your terminal width
-
-
 ### `VAL(s$)`
 
 Returns the numeric value of `s$`
@@ -1880,6 +2061,11 @@ Returns the numeric value of `s$`
 ```
  12345
 ```
+
+
+### `WIDTH`
+
+Returns your terminal width
 
 
 ## 6. FAQ
