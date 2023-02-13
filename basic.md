@@ -32,7 +32,7 @@ TeleBASIC has a wide user-base and is actively maintained by members of [The Tel
 
 ### What's with the fish?
 
-That's our mascot, Bassy the dart-mouthed bas.
+That's our mascot, Bassy the dart-mouthed bass.
 
 ## Table of Contents
 
