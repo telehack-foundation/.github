@@ -14,4 +14,10 @@ The system and its many components are still actively maintained by [The Telehac
 
 Please read [telehack.txt](https://telehack.com/telehack.html) for more information.
 
-### GLHF!
+## Markdown badges
+
+The following badges are available for use on GitHub repositories, and elsewhere:
+| Name           | Badge                                                                                                                          | Markdown                                                                                                     |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------ | --------                                                                                                     |
+| Telehack       | ![Telehack](https://raw.githubusercontent.com/telehack-foundation/.github/main/profile/svg/telehack.svg)                       | `![Telehack](https://raw.githubusercontent.com/telehack-foundation/.github/main/profile/svg/telehack.svg)`   |
+| TeleBASIC      | ![TeleBASIC](https://raw.githubusercontent.com/telehack-foundation/.github/main/profile/svg/telebasic.svg)                     | `![TeleBASIC](https://raw.githubusercontent.com/telehack-foundation/.github/main/profile/svg/telebasic.svg)` |
