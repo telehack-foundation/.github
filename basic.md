@@ -264,8 +264,8 @@ In addition to this, TeleBASIC allows for creation of multi-dimensional arrays, 
 
 - [`ACCESS`](#access)  Currently not implemented, does nothing
 - [`ARG$`](#arg)  A string containing all command line arguments
-- [`ARGV$(n)`](#argvn)  An array containing all of the arguments passed to the program
 - [`ARGC%`](#argc)  The number of arguments passed to the program
+- [`ARGV$(n)`](#argvn)  An array containing all of the arguments passed to the program
 - [`ASC(s$)`](#ascs)  Returns the ASCII value of the first character in the string `s$`
 - [`ATN(n)`](#atnn)  Returns the arctangent of the specified value `n`
 
@@ -320,8 +320,8 @@ In addition to this, TeleBASIC allows for creation of multi-dimensional arrays, 
 
 - [`IF expression THEN statements`](#if-expression-then-statements)  Make a decision regarding program flow
 - [`INKEY$`](#inkey)  Returns one character read from the terminal
-- [`INPUT prompt$, var$`](#input-prompt-var)  Read user input
 - [`INPUT FileNo, var$`](#input-fileno-var)  Reads a line from an open file
+- [`INPUT prompt$, var$`](#input-prompt-var)  Read user input
 - [`INSTR(string$, search$, startPos)`](#instrstring-search-startpos)  Returns the position of a substring
 - [`INT (n)`](#int-n)  Truncate a value to a whole number
 - [`ITM(fileNumber)`](#itmfilenumber)  Returns the number of a data item
@@ -348,8 +348,8 @@ In addition to this, TeleBASIC allows for creation of multi-dimensional arrays, 
 #### O
 
 - [`OCT$(n)`](#octn)  Returns a octal value of `n`
-- [`OPEN filename$, AS fileNumber`](#open-filename-as-filenumber)  Opens a file
 - [`ON NUMBER%`](#on-number)  Jump conditionally to a line number based on value given
+- [`OPEN filename$, AS fileNumber`](#open-filename-as-filenumber)  Opens a file
 
 #### P
 
@@ -395,38 +395,38 @@ In addition to this, TeleBASIC allows for creation of multi-dimensional arrays, 
 
 - [`TAB(n), TAB$(n)`](#tabn-tabn)  Returns `n` spaces (not tabs!)
 - [`TAN(n)`](#tann)  Returns trigonometric tangent of `n` in radians
-- [`TH_SYSLEVEL`](#th_syslevel)  Returns the user's Telehack system level
+- [`TH_B64D$`](#th_b64d)  Returns argument decoded from base64
+- [`TH_B64E$`](#th_b64e)  Returns argument encoded to base64
+- [`TH_DEFGROUP$`](#th_defgroup)  Returns the user's defgroup, separated by spaces
+- [`TH_EXEC`](#th_exec)  Executes a shell command and returns to the program
+- [`TH_GMTIME[$]`](#th_gmtime)  Returns a human-readable UTC time for a timestamp
+- [`TH_HASADMIN(sat$)`](#th_hasadminsat)  Returns 1 if the user has admin on `sat$`
 - [`TH_HASBADGE(badge$)`](#th_hasbadgebadge)  Returns when the user earned `badge$`
 - [`TH_HASLOGIN(host$)`](#th_hasloginhost)  Returns 1 if the user has login on `host$`
 - [`TH_HASROOT(host$)`](#th_hasroothost)  Returns 1 if the user has root on `host$`
 - [`TH_HASSYSOP(bbs$)`](#th_hassysopbbs)  Returns 1 if the user has sysop on `bbs$`
-- [`TH_HASADMIN(sat$)`](#th_hasadminsat)  Returns 1 if the user has admin on `sat$`
-- [`TH_DEFGROUP$`](#th_defgroup)  Returns the user's defgroup, separated by spaces
-- [`TH_PLAN$`](#th_plan)  Returns the user's `.plan` as a string
-- [`TH_TIME`](#th_time)  Returns the current UNIX timestamp
-- [`TH_LOCALTIME[$]`](#th_localtime)  Returns a human-readable local time for a timestamp
-- [`TH_GMTIME[$]`](#th_gmtime)  Returns a human-readable UTC time for a timestamp
-- [`TH_MODEM$`](#th_modem)  Returns modem information depending on option passed
 - [`TH_HOSTNAME$`](#th_hostname)  Returns current hostname or hostname of argument passed
-- [`TH_NETSTAT$`](#th_netstat)  Returns a netstat, separated by spaces
-- [`TH_MD5HEX$`](#th_md5hex)  Returns md5 hex of argument passed as hex
+- [`TH_LOCALTIME[$]`](#th_localtime)  Returns a human-readable local time for a timestamp
 - [`TH_MD5BASE64$`](#th_md5base64)  Returns md5 hex of argument passed as base64
-- [`TH_B64E$`](#th_b64e)  Returns argument encoded to base64
-- [`TH_B64D$`](#th_b64d)  Returns argument decoded from base64
-- [`TH_EXEC`](#th_exec)  Executes a shell command and returns to the program
+- [`TH_MD5HEX$`](#th_md5hex)  Returns md5 hex of argument passed as hex
+- [`TH_MODEM$`](#th_modem)  Returns modem information depending on option passed
+- [`TH_NETSTAT$`](#th_netstat)  Returns a netstat, separated by spaces
+- [`TH_PLAN$`](#th_plan)  Returns the user's `.plan` as a string
 - [`TH_RE(txt$,pat$,count,case)`](#th_retxtpatcountmodeignorecase)  Returns regex matches
 - [`TH_RE$(txt$,pat$,ind$,case)`](#th_retxtpatindignorecase)  Returns regex matches
 - [`TH_REV$(s$)`](#th_revs)  Returns the string `s$` in reverse order
 - [`TH_SED$(txt$,find$,replace$,opt$)`](#th_sedtxtfindreplaceopt)  Substitute matched substring
 - [`TH_SPRINTF$(fmt$,[...])`](#th_sprintffmt)  Returns a formatted string
+- [`TH_SYSLEVEL`](#th_syslevel)  Returns the user's Telehack system level
+- [`TH_TIME`](#th_time)  Returns the current UNIX timestamp
 - [`TH_UUD$(s$)`](#th_uuds)  Decodes a uuencoded string
 - [`TH_UUE$(s$)`](#th_uues)  Returns uuencoded form of input string
 - [`TIM(n)`](#timn)  Returns values of time and date depending on `n`
 - [`TIME$`](#time)  Returns the local system time
 - [`TIMER`](#timer)  Returns the number of seconds since midnight
-- [`TYP(n)`](#typn)  Returns the type of the next record in a file
 - [`TROFF`](#troff)  Stops tracing of program statements
 - [`TRON`](#tron)  Starts tracing of program statements
+- [`TYP(n)`](#typn)  Returns the type of the next record in a file
 
 #### U
 
