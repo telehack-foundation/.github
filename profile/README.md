@@ -1,9 +1,3 @@
-# **Telehack**
-
-### May the command-line live forever.
-
-<hr>
-
 ## What is Telehack?
 
 [Telehack](https://telehack.com/) is a simulation of a stylized ARPANET/Usenet, circa 1985-1990.  It is a full multi-user simulation, including 26,600+ simulated hosts from the early net, thousands of files from the era, a collection of adventure and IF games, an [advanced BASIC interpreter](https://github.com/telehack-foundation/.github/blob/main/basic.md) with a library of programs to run, simulated historical users, and more.
