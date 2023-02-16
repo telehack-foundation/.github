@@ -1,3 +1,6 @@
+![Telehack](https://telehack.com/telehack.svg)
+![Telehack](https://telehack.com/cmd.svg)
+
 ## What is Telehack?
 
 [Telehack](https://telehack.com/) is a simulation of a stylized ARPANET/Usenet, circa 1985-1990.  It is a full multi-user simulation, including 26,600+ simulated hosts from the early net, thousands of files from the era, a collection of adventure and IF games, an [advanced BASIC interpreter](https://github.com/telehack-foundation/.github/blob/main/basic.md) with a library of programs to run, simulated historical users, and more.
@@ -7,11 +10,3 @@ Founded in 2010 by its anonymous creator [forbin](https://github.com/telehack/) 
 The system and its many components are still actively maintained by [The Telehack Foundation](https://github.com/orgs/telehack-foundation/people/), and many Telehack users release new creations on a regular basis.
 
 Please read [telehack.txt](https://telehack.com/telehack.html) for more information.
-
-## Markdown badges
-
-The following badges are available for use on GitHub repositories, and elsewhere:
-| Name           | Badge                                                                                                                          | Markdown                                                                                                     |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------ | --------                                                                                                     |
-| Telehack       | ![Telehack](https://raw.githubusercontent.com/telehack-foundation/.github/main/profile/svg/telehack.svg)                       | `![Telehack](https://raw.githubusercontent.com/telehack-foundation/.github/main/profile/svg/telehack.svg)`   |
-| TeleBASIC      | ![TeleBASIC](https://raw.githubusercontent.com/telehack-foundation/.github/main/profile/svg/telebasic.svg)                     | `![TeleBASIC](https://raw.githubusercontent.com/telehack-foundation/.github/main/profile/svg/telebasic.svg)` |
