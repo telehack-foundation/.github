@@ -630,10 +630,11 @@ The function name must always begin with `FN`, followed by an optional space.
 ```
 10  DEF FN square(x) = x^2
 20  DEF FNcube(x) = x^3
-30  PRINT FNsquare(5),FNcube(5)
+30  DEF FNtood$(s$) = s$ + "tood"
+40  PRINT FNsquare(5),FNcube(5),FNtood$("foo")
 ```
 ```
- 25       125
+ 25             125           footood
 ```
 
 
