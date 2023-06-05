@@ -1838,7 +1838,10 @@ Returns a formatted string based on given parameters:
    - `%e` - A floating-point number, in scientific notation
    - `%f` - A floating-point number, in fixed decimal notation
    - `%g` - A floating-point number, in `%e` or `%f` notation
+   - `%h` - A floating-point number, in IEEE-754 notation
    - `%i` - Exactly like `%d`, for compatibility, or something
+   - `%y` - Returns the decimal form of a hexadecimal unsigned int value
+   - `%z` - Returns decimal form of IEEE-754 input value
    - `%D` - Like `%d`, but longer
    - `%U` - Like `%u`, but longer
    - `%O` - Like `%o`, but longer
@@ -1848,6 +1851,7 @@ Returns a formatted string based on given parameters:
    - `%X` - Like `%x`, but using upper-case letters
    - `%E` - Like `%e`, but using an upper-case "E"
    - `%G` - Like `%g`, but with an upper-case "E" (if applicable)
+   - `%H` - Like `%h`, but using upper-case letters
    - `%A` - Like `%a`, but using upper-case letters
 
 #### Example 1:
