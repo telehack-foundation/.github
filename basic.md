@@ -321,7 +321,10 @@ In addition to this, TeleBASIC allows for creation of multi-dimensional arrays, 
 - [`IF expression THEN statements`](#if-expression-then-statements)  Make a decision regarding program flow
 - [`INKEY$`](#inkey)  Returns one character read from the terminal
 - [`INPUT FileNo, var$`](#input-fileno-var)  Reads a line from an open file
-- [`INPUT prompt$, var$`](#input-prompt-var)  Read user input
+- [`INPUT var$`](#input-var)  Read user input
+- [`INPUT "prompt", var$`](#input-prompt-var)  Read user input
+- [`INPUT varA$, varB$, ...`](#input-vara-varb-)  Read user input
+- [`INPUT "prompt", varA$, varB$, ...`](#input-prompt-vara-varb-)  Read user input
 - [`INSTR(string$, search$, startPos)`](#instrstring-search-startpos)  Returns the position of a substring
 - [`INT (n)`](#int-n)  Truncate a value to a whole number
 - [`ITM(fileNumber)`](#itmfilenumber)  Returns the number of a data item
@@ -817,13 +820,43 @@ Returns one character read from the terminal. It will wait until a character is 
 ```
 
 
-### `INPUT prompt$, var$`
+### `INPUT var$`
 
-Shows `prompt$` and reads input from the user and saves it into `var$`
+Shows the default prompt and reads input from the user and saves it into `var$`.
+
+```
+10  INPUT A$
+20  PRINT A$
+```
+
+
+### `INPUT "prompt", var$`
+
+Shows `prompt$` and reads input from the user and saves it into `var$`. Note that the prompt must be a string literal, not a variable.
 
 ```
 10  INPUT "Enter something>", A$
 20  PRINT A$
+```
+
+
+### `INPUT varA$, varB$, ...`
+
+Shows the default prompt and reads input from the user, splits it at commas, and saves it into `varA$`, `varB$`, ...
+
+```
+10  INPUT A$, B$, C$
+20  PRINT A$, B$, C$
+```
+
+
+### `INPUT "prompt", varA$, varB$, ...`
+
+Shows `prompt$` and reads input from the user, splits it at commas, and saves it into `varA$`, `varB$`, ... Note that the prompt must be a string literal, not a variable.
+
+```
+10  INPUT "Enter something>", A$, B$, C$
+20  PRINT A$, B$, C$
 ```
 
 
