@@ -306,6 +306,7 @@ In addition to this, TeleBASIC allows for creation of multi-dimensional arrays, 
 #### F
 
 - [`FOR x = startValue TO maxValue [STEP n]`](#for-x--startvalue-to-maxvalue-step-n)  Execute a series of instructions
+- [`FRE`](#fre)  Return available memory
 
 #### G
 
@@ -720,6 +721,18 @@ Return the base of natural logarithms to the power of the specified value `n`
 ```
 ```
  442413.392
+```
+
+
+### `FRE`
+
+Return the available system memory in bytes
+
+```
+10  PRINT FRE
+```
+```
+ 1048576
 ```
 
 
