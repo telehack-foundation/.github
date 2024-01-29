@@ -724,18 +724,6 @@ Return the base of natural logarithms to the power of the specified value `n`
 ```
 
 
-### `FRE`
-
-Return the available system memory in bytes
-
-```
-10  PRINT FRE
-```
-```
- 1048576
-```
-
-
 ### `FOR x = startValue TO maxValue [STEP n]`
 
 Execute a series of instructions a specified number of times in a loop, optionally incrementing `x` by `n` each time
@@ -764,6 +752,18 @@ _This would run 40 times and output the current counter in each iteration, and w
 ```
 
 _This would create an endless loop, printing `1` over and over until terminated._
+
+
+### `FRE`
+
+Return the available system memory in bytes
+
+```
+10  PRINT FRE
+```
+```
+ 1048576
+```
 
 
 ### `GOSUB (LineNumber)`
