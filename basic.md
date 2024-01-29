@@ -286,6 +286,7 @@ In addition to this, TeleBASIC allows for creation of multi-dimensional arrays, 
 
 #### D
 
+- [`D2R(n)`](#d2rn) Convert degrees to radians
 - [`DATA n...`](#data-n) Store variables accessed by the program [`READ`](#read-n) statements
 - [`DEF FNname(Argument) = Expression`](#def-fnnameargument--expression)  Define a function
 - [`DEFDBL (Variable)`](#defdbl-variable)  Currently not implemented, does nothing
@@ -601,6 +602,7 @@ Returns the cosinus of a specified value `n` in radians
 
 
 ### `CSNG(n)`
+
 Convert a specified value `n` to a single precision number
 
 ```
@@ -608,6 +610,18 @@ Convert a specified value `n` to a single precision number
 ```
 ```
  3.450
+```
+
+
+### `D2R(n)`
+
+Convert degrees to radians
+
+```
+10  PRINT D2R( 90 )
+```
+```
+ 1.571
 ```
 
 
