@@ -300,6 +300,7 @@ In addition to this, TeleBASIC allows for creation of multi-dimensional arrays, 
 
 #### E
 
+- [`END(n)`](#end)   End program execution silently, without additional output.
 - [`EOF(n)`](#eofn)  Returns file pointer information
 - [`EXP(n)`](#expn)  Return base of natural logarithms to the power of `n`
 
@@ -395,6 +396,7 @@ In addition to this, TeleBASIC allows for creation of multi-dimensional arrays, 
 - [`STOP`](#stop)  Halts the program and prints the current line
 - [`STR$(n)`](#strn)  Returns `n` as a string value
 - [`STRING$(n, s$)`](#stringn-s)  Repeats the string `s$` `n` times
+- [`SYSTEM`](#end)   End program execution silently, without additional output.
 
 #### T
 
@@ -702,6 +704,18 @@ Currently not implemented, does nothing
 
 Currently not implemented, does nothing
 
+### `END`
+
+End execution of the program silently, without additional output (in contrast to [`STOP`](#stop)).
+Note that `SYSTEM` is an alias for `END`.
+
+```
+10 PRINT "hello"
+20 GOSUB 100
+30 END
+40 PRINT "WORLD"
+50 RETURN
+```
 
 ### `EOF(n)`
 
@@ -726,12 +740,15 @@ Return the base of natural logarithms to the power of the specified value `n`
 
 ### `FOR x = startValue TO maxValue [STEP n]`
 
-Execute a series of instructions a specified number of times in a loop, optionally incrementing `x` by `n` each time
+Execute a series of instructions a specified number of times in a loop, optionally incrementing `x` by `n` each time.
+
+Note that `FOR I=A TO B STEP S: ... : NEXT I` works like `I=A; do { ... } while ((I+=S) < B);` (in the C programming language), so the last `NEXT I` increases `I` one step beyond `B`.
 
 ```
 10  FOR I = 1 TO 40
 20  PRINT I
 30  NEXT I
+40  REM the I variable is now 41
 ```
 
 _This would run 40 times and output every time the current counter, incrementing `I` by 1 each time._
@@ -2187,6 +2204,32 @@ Now you can call it with:
 60  CLOSE #1
 ```
 
+**A2:** The solution above (linear search) is somewhat slow for large files. [Exponential search](https://en.wikipedia.org/wiki/Exponential_search) is more complicated, but finds the end of a 10000-line file in ~`0.03` seconds instead of ~`31.6` seconds (1000x faster). Below is an example subroutine:
+```
+10 OPEN "filename.txt", AS #1
+20 GOSUB 250 : 'probe now points to the last line, but file pointer DOES NOT NECESSARILY.
+30 READ #1, probe; lastline$ : advance file pointer to probe
+40 PRINT# 1, "We are now at EOF, and appending stuff"
+50 PRINT "The previous last line", lastline$
+60 CLOSE 1
+200 END
+
+250 probe=2 : DIM last(2) : last(0)=0 : last(-1)=2^52-1
+255 '(0) is last good line , (-1) is last bad line (EOF), initialized to max int
+260 READ #1, probe
+265 ' read record at index (probe) from file #1, but not into any variables.
+266 ' this is slightly faster than input#.
+270 last(EOF(1)) = probe
+275 'store the probed offset as either good or bad, depending on whether we hit EOF or not.
+280 x = probe*2 : 'Exponential search for EOF
+280 y = last(0) + INT((last(-1)-last(0))/2)
+285 'halfway between last known good and last EOF (binary search)
+290 probe = y XOR ((x XOR y) AND -(x < y))
+295 ' probe = min(x,y); picks binary search when probe overshoots
+300 IF probe > last(0) GOTO 260
+305 ' probe>good implies (bad-good)/2>=1 implies EOF may lie beyond good+1; keep probing.
+310 RETURN
+```
 
 ### **Q:** How do I create a BBS?
 
