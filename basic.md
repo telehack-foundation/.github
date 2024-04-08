@@ -300,8 +300,9 @@ In addition to this, TeleBASIC allows for creation of multi-dimensional arrays, 
 
 #### E
 
-- [`END(n)`](#end)   End program execution silently, without additional output.
+- [`END`](#end)  End program execution silently, without additional output
 - [`EOF(n)`](#eofn)  Returns file pointer information
+- [`ERASE (arrays)`](#erase-arrays)  To eliminate arrays from a program
 - [`EXP(n)`](#expn)  Return base of natural logarithms to the power of `n`
 
 #### F
@@ -353,7 +354,7 @@ In addition to this, TeleBASIC allows for creation of multi-dimensional arrays, 
 
 #### O
 
-- [`OCT$(n)`](#octn)  Returns a octal value of `n`
+- [`OCT$(n)`](#octn)  Returns the octal value of `n`
 - [`ON NUMBER%`](#on-number)  Jump conditionally to a line number based on value given
 - [`OPEN filename$, AS fileNumber`](#open-filename-as-filenumber)  Opens a file
 
@@ -396,7 +397,7 @@ In addition to this, TeleBASIC allows for creation of multi-dimensional arrays, 
 - [`STOP`](#stop)  Halts the program and prints the current line
 - [`STR$(n)`](#strn)  Returns `n` as a string value
 - [`STRING$(n, s$)`](#stringn-s)  Repeats the string `s$` `n` times
-- [`SYSTEM`](#end)   End program execution silently, without additional output.
+- [`SYSTEM`](#end)  End program execution silently, without additional output
 
 #### T
 
@@ -724,6 +725,23 @@ Returns -1 if the file pointer in file number `n` is currently at the end of the
 The reason for -1 being used to denote truth is that -1 is 11111111 in binary, and conversely, 0 is 00000000.
 
 _See also [`TYP`](#typn)._
+
+
+### `ERASE arrays`
+
+Eliminate an array from the program.  Accepts a list of arrays.
+
+```
+10  A(1) = 123
+20  A(2) = 456
+30  B$( "foo" ) = "bar"
+40  B$( "bar" ) = "baz"
+50  ERASE A, B$
+60  PRINT A(1) A(2) "'" B$( "foo" ) "' '" B$( "bar" ) "'"
+```
+```
+ 0  0 '' ''
+```
 
 
 ### `EXP(n)`
@@ -1082,7 +1100,7 @@ _See also [`ASC`](#ascs)_
 
 ### `OCT$(n)`
 
-Returns a octal value of `n`
+Returns the octal value of `n`
 
 ```
 10  PRINT OCT$(66)
