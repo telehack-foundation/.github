@@ -425,6 +425,7 @@ In addition to this, TeleBASIC allows for creation of multi-dimensional arrays, 
 - [`TH_REV$(s$)`](#th_revs)  Returns the string `s$` in reverse order
 - [`TH_SED$(txt$,find$,replace$,opt$)`](#th_sedtxtfindreplaceopt)  Substitute matched substring
 - [`TH_SPRINTF$(fmt$,[...])`](#th_sprintffmt)  Returns a formatted string
+- [`TH_STATUS$`](#th_status)  Returns the user's status as a string
 - [`TH_SYSLEVEL`](#th_syslevel)  Returns the user's Telehack system level
 - [`TH_TIME`](#th_time)  Returns the current UNIX timestamp
 - [`TH_UUD$(s$)`](#th_uuds)  Decodes a uuencoded string
@@ -2011,6 +2012,11 @@ Bill      Volvo       New Zealand
 Alex      Ferrari     Italy
 Wumpus    Tesla       United States
 ```
+
+
+### `TH_STATUS$`
+
+Returns the user's status as a string
 
 
 ### `TH_UUD$(s$)`
