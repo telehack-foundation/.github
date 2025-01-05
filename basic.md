@@ -2232,7 +2232,7 @@ Now you can call it with:
 ```
 10 OPEN "filename.txt", AS #1
 20 GOSUB 250 : 'probe now points to the last line, but file pointer DOES NOT NECESSARILY.
-30 READ #1, probe; lastline$ : advance file pointer to probe
+30 READ #1, probe; lastline$ : 'advance file pointer to probe
 40 PRINT# 1, "We are now at EOF, and appending stuff"
 50 PRINT "The previous last line", lastline$
 60 CLOSE 1
@@ -2245,8 +2245,7 @@ Now you can call it with:
 266 ' this is slightly faster than input#.
 270 last(EOF(1)) = probe
 275 'store the probed offset as either good or bad, depending on whether we hit EOF or not.
-280 x = probe*2 : 'Exponential search for EOF
-280 y = last(0) + INT((last(-1)-last(0))/2)
+280 x = probe*2 : y = last(0) + INT((last(-1)-last(0))/2) : 'Exponential search for EOF 
 285 'halfway between last known good and last EOF (binary search)
 290 probe = y XOR ((x XOR y) AND -(x < y))
 295 ' probe = min(x,y); picks binary search when probe overshoots
