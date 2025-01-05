@@ -2245,7 +2245,7 @@ Now you can call it with:
 266 ' this is slightly faster than input#.
 270 last(EOF(1)) = probe
 275 'store the probed offset as either good or bad, depending on whether we hit EOF or not.
-280 x = probe*2 : y = last(0) + INT((last(-1)-last(0))/2) : 'Exponential search for EOF 
+280 x = probe*2 : y = last(0) + INT((last(-1)-last(0))/2) : 'Exponential search for EOF
 285 'halfway between last known good and last EOF (binary search)
 290 probe = y XOR ((x XOR y) AND -(x < y))
 295 ' probe = min(x,y); picks binary search when probe overshoots
