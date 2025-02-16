@@ -577,6 +577,8 @@ Returns the nearest integer of the specified value (9.5 becomes 10)
  6
 ```
 
+_See also [`NINT`](#nintn)_
+
 
 ### `CIRCLE`
 
@@ -628,6 +630,8 @@ Convert degrees to radians
 ```
  1.571
 ```
+
+_See also [`R2D`](#r2dn)_
 
 
 ### `DATA n...`
@@ -946,6 +950,8 @@ Returns the position (starting with 0) of a substring within a string
  6
 ```
 
+_See also [`POS`](#poss1s2)_
+
 
 ### `INT (n)`
 
@@ -986,6 +992,8 @@ Returns the leftmost `n` characters of the specified string `s$`
 ```
 Hello
 ```
+
+_See also [`MID$`](#mids-n-l) and [`RIGHT$`](#rights-n)_
 
 
 ### `LEN(s$)`
@@ -1073,6 +1081,8 @@ Returns a string of `l` characters from `s$` beginning with the `n`th character
 llo
 ```
 
+_See also [`LEFT$`](#lefts-n) and [`RIGHT$`](#rights-n)_
+
 
 ### `NINT(n)`
 
@@ -1085,6 +1095,8 @@ Returns the nearest integer of the specified value (9.5 becomes 9)
  6
 ```
 
+_See also [`CINT`](#cintn)_
+
 
 ### `NUM(s$)`
 
@@ -1096,6 +1108,7 @@ Returns the ASCII value of the first character in the string `s$`
 ```
  65
 ```
+
 _See also [`ASC`](#ascs)_
 
 
@@ -1209,6 +1222,8 @@ Returns the position of `s2$` in `s1$` indexed from 1, or 0 if not found
  3
 ```
 
+_See also [`INSTR`](#instrstring-search-startpos)_
+
 
 ### `PRINT expression`
 
@@ -1280,6 +1295,8 @@ Converts `n` radians to degrees
 ```
  68.755
 ```
+
+_See also [`D2R`](#d2rn)_
 
 
 ### `READ n...`
@@ -1381,6 +1398,8 @@ Returns the rightmost `n` characters of the specified string `s$`
 ```
 World
 ```
+
+_See also [`LEFT$`](#lefts-n) and [`MID$`](#mids-n-l)_
 
 
 ### `RND(n)`
