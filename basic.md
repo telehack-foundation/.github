@@ -335,7 +335,7 @@ In addition to this, TeleBASIC allows for creation of multi-dimensional arrays, 
 
 #### L
 
-- [`LEFT$(s$, n)`](#lefts-n)  Returns the leftmost `n` characters of the specified string `s$`
+- [`LEFT$(s$, n)`](#lefts-n)  Returns the leftmost `n` characters of `s$`
 - [`LEN(s$)`](#lens)  Returns the number of characters in the specified string
 - [`LET Variable = Value`](#let-variable--value)  Assigns a value to a variable
 - [`LIN(n)`](#linn)  Returns `n` newlines
@@ -345,7 +345,7 @@ In addition to this, TeleBASIC allows for creation of multi-dimensional arrays, 
 
 #### M
 
-- [`MID$(s$, n, [l])`](#mids-n-l)  Returns a string of `l` characters from `s$`
+- [`MID$(s$, n, [l])`](#mids-n-l)  Returns a substring of `l` characters from `s$` beginning with the `n`th character
 
 #### N
 
@@ -368,7 +368,7 @@ In addition to this, TeleBASIC allows for creation of multi-dimensional arrays, 
 - [`POKE n, m`](#poke-n-m)  Write a byte of data `m` into the specified memory location `n`
 - [`POLKEY$(n)`](#polkeyn)  Returns one character read from the terminal
 - [`PORT%`](#port)  Returns the port from the currently logged in user
-- [`POS(s1$,s2$)`](#poss1s2)  Returns the position of a substring
+- [`POS(string$, search$, [startPos])`](#posstring-search-startpos)  Returns the position of a substring
 - [`PRINT expression`](#print-expression)  Prints an expression to the screen
 - [`PUT`](#put)  Currently not implemented, does nothing
 
@@ -949,20 +949,23 @@ Reads a line from an open file and saves it into `var$`
 ```
 
 
-### `INSTR(string$, search$, startPos)`
+### `INSTR(string$, search$, [startPos])`
 
-Returns the position (starting with 0) of a substring within a string
+Returns the position (indexed from 0) of `search$` within `string$`, or -1 if not found. If provided, begin searching at index `startPos`
 
 ```
-10  TEXT$ = "Hello World"
-20  SEARCHFOR$ = "W"
-30  PRINT INSTR(TEXT$, SEARCHFOR$, 0)
+10  TEXT$ = "Hello, World! Hello, Telehack!"
+20  PRINT INSTR(TEXT$, "llo")
+30  PRINT INSTR(TEXT$, "llo", 3)
+40  PRINT INSTR(TEXT$, "foo")
 ```
 ```
- 6
+ 2
+ 16
+ -1
 ```
 
-_See also [`POS`](#poss1s2)_
+_See also [`POS`](#posstring-search-startpos)_
 
 
 ### `INT (n)`
@@ -998,13 +1001,16 @@ In TeleBASIC this will almost always be 1.
 
 Returns the leftmost `n` characters of the specified string `s$`
 
+If `n` is negative, returns everything except the rightmost `ABS(n)` characters
+
 ```
 10  A$ = "Hello World"
-20  B$ = LEFT$(A$, 5)
-30  PRINT B$
+20  PRINT LEFT$(A$, 5)
+30  PRINT LEFT$(A$, -3)
 ```
 ```
 Hello
+Hello Wo
 ```
 
 _See also [`MID$`](#mids-n-l) and [`RIGHT$`](#rights-n)_
@@ -1085,14 +1091,25 @@ Returns the natural logarithm of `n` using 10 as the base (decimal).
 
 ### `MID$(s$, n, [l])`
 
-Returns a string of `l` characters from `s$` beginning with the `n`th character
+Returns a substring of `l` characters from `s$` beginning with the `n`th character (indexed from 1)
+
+If `l` is omitted or zero, the rest of the string is returned. If `l` is negative, the end of the substring is indexed relative to the end of the string
+
+If `n` is zero or negative, the start of the substring is indexed relative to the end of the string
+
 
 ```
 10  A$ = "Hello World"
 20  PRINT MID$(A$,3,3)
+30  PRINT MID$(A$,3)
+40  PRINT MID$(A$,3,-3)
+50  PRINT MID$(A$,-3,3)
 ```
 ```
 llo
+llo World
+llo Wo
+orl
 ```
 
 _See also [`LEFT$`](#lefts-n) and [`RIGHT$`](#rights-n)_
@@ -1231,16 +1248,20 @@ Returns the port from the currently logged in user.  Not to be confused with the
 ```
 
 
-### `POS(s1$,s2$)`
+### `POS(string$, search$, [startPos])`
 
-Returns the position of `s2$` in `s1$` indexed from 1, or 0 if not found
+Returns the position (indexed from 1) of `search$` within `string$`, or 0 if not found. If provided, begin searching at index `startPos`
 
 ```
-10  A$="ABCDE"
-20  PRINT POS(A$,"CD")
+10  TEXT$ = "Hello, World! Hello, Telehack!"
+20  PRINT POS(TEXT$, "llo")
+30  PRINT POS(TEXT$, "llo", 4)
+40  PRINT POS(TEXT$, "foo")
 ```
 ```
  3
+ 17
+ 0
 ```
 
 _See also [`INSTR`](#instrstring-search-startpos)_
