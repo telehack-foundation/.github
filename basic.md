@@ -267,7 +267,7 @@ In addition to this, TeleBASIC allows for creation of multi-dimensional arrays, 
 - [`ARGC%`](#argc)  The number of arguments passed to the program
 - [`ARGV$(n)`](#argvn)  An array containing all of the arguments passed to the program
 - [`ASC(s$)`](#ascs)  Returns the ASCII value of the first character in the string `s$`
-- [`ATN(n)`](#atnn)  Returns the arctangent of the specified value `n`
+- [`ATN(n)`](#atnn)  Returns the arctangent (in radians) of the specified value `n`
 
 #### B
 
@@ -281,7 +281,7 @@ In addition to this, TeleBASIC allows for creation of multi-dimensional arrays, 
 - [`CINT(n)`](#cintn)  Returns the nearest integer of the specified value
 - [`CIRCLE`](#circle)  Currently not implemented, does nothing
 - [`COLOR(a, b)`](#colora-b)  Changes the colours of the terminal
-- [`COS(n)`](#cosn)  Returns the cosinus of a specified value `n` in radians
+- [`COS(n)`](#cosn)  Returns the trigonometric cosine of the angle `n` (in radians)
 - [`CSNG(n)`](#csngn)  Convert a specified value `n` to a single precision number
 
 #### D
@@ -335,7 +335,7 @@ In addition to this, TeleBASIC allows for creation of multi-dimensional arrays, 
 
 #### L
 
-- [`LEFT$(s$, n)`](#lefts-n)  Returns the leftmost `n` characters of the specified string `s$`
+- [`LEFT$(s$, n)`](#lefts-n)  Returns the leftmost `n` characters of `s$`
 - [`LEN(s$)`](#lens)  Returns the number of characters in the specified string
 - [`LET Variable = Value`](#let-variable--value)  Assigns a value to a variable
 - [`LIN(n)`](#linn)  Returns `n` newlines
@@ -345,7 +345,7 @@ In addition to this, TeleBASIC allows for creation of multi-dimensional arrays, 
 
 #### M
 
-- [`MID$(s$, n, [l])`](#mids-n-l)  Returns a string of `l` characters from `s$`
+- [`MID$(s$, n, [l])`](#mids-n-l)  Returns a substring of `l` characters from `s$` beginning with the `n`th character
 
 #### N
 
@@ -368,7 +368,7 @@ In addition to this, TeleBASIC allows for creation of multi-dimensional arrays, 
 - [`POKE n, m`](#poke-n-m)  Write a byte of data `m` into the specified memory location `n`
 - [`POLKEY$(n)`](#polkeyn)  Returns one character read from the terminal
 - [`PORT%`](#port)  Returns the port from the currently logged in user
-- [`POS(s1$,s2$)`](#poss1s2)  Returns the position of a substring
+- [`POS(string$, search$, [startPos])`](#posstring-search-startpos)  Returns the position of a substring
 - [`PRINT expression`](#print-expression)  Prints an expression to the screen
 - [`PUT`](#put)  Currently not implemented, does nothing
 
@@ -388,7 +388,7 @@ In addition to this, TeleBASIC allows for creation of multi-dimensional arrays, 
 - [`SCRATCH`](#scratch)  Delete a file from the disk
 - [`SCREEN`](#screen)  Currently not implemented, does nothing
 - [`SGN(n)`](#sgnn)  Returns the sign of the specified value `n`
-- [`SIN(n)`](#sinn)  Returns the trigonometric sine of the specified value `n` in radians
+- [`SIN(n)`](#sinn)  Returns the trigonometric sine of the angle `n` (in radians)
 - [`SLEEP n`](#sleep-n)  Pauses the program for `n` seconds
 - [`SOUND`](#sound)  Currently not implemented, does nothing
 - [`SOUNDRND`](#soundrnd)  Currently not implemented, does nothing
@@ -402,7 +402,7 @@ In addition to this, TeleBASIC allows for creation of multi-dimensional arrays, 
 #### T
 
 - [`TAB(n), TAB$(n)`](#tabn-tabn)  Returns `n` spaces (not tabs!)
-- [`TAN(n)`](#tann)  Returns trigonometric tangent of `n` in radians
+- [`TAN(n)`](#tann)  Returns the trigonometric tangent of the angle `n` (in radians)
 - [`TH_B64D$`](#th_b64d)  Returns argument decoded from base64
 - [`TH_B64E$`](#th_b64e)  Returns argument encoded to base64
 - [`TH_DEFGROUP$`](#th_defgroup)  Returns the user's defgroup, separated by spaces
@@ -522,13 +522,16 @@ _See also [`NUM`](#nums)_
 
 ### `ATN(n)`
 
-Returns the arctangent of the specified value `n`
+Returns the arctangent (in radians) of the specified value `n`
 
 ```
-10  PRINT ATN(40)
+10  PI = 3.14159
+20  PRINT ATN(1)
+30  PRINT PI/4
 ```
 ```
- 1.546
+ 0.785
+ 0.785
 ```
 
 
@@ -568,14 +571,22 @@ Convert an ASCII code `n` to its equivalent character
 
 ### `CINT(n)`
 
-Returns the nearest integer of the specified value (9.5 becomes 10)
+Returns `n` rounded to the nearest integer, with 0.5 rounding away from 0
 
 ```
-10  PRINT CINT(5.7)
+10  PRINT CINT(5.6)
+20  PRINT CINT(5.5)
+30  PRINT CINT(5.4)
+40  PRINT CINT(-5.5)
 ```
 ```
  6
+ 6
+ 5
+ -6
 ```
+
+_See also [`NINT`](#nintn)_
 
 
 ### `CIRCLE`
@@ -596,13 +607,16 @@ _Prints `Hello` with blue `b` background and yellow `a` foreground text.  A list
 
 ### `COS(n)`
 
-Returns the cosinus of a specified value `n` in radians
+Returns the trigonometric cosine of the angle `n`, given in radians
 
 ```
-10  PRINT COS(67)
+10  PI = 3.14159
+20  PRINT COS(PI/6)
+30  PRINT SQRT(3)/2
 ```
 ```
- -0.517769799789505
+ 0.866
+ 0.866
 ```
 
 
@@ -628,6 +642,8 @@ Convert degrees to radians
 ```
  1.571
 ```
+
+_See also [`R2D`](#r2dn)_
 
 
 ### `DATA n...`
@@ -933,29 +949,36 @@ Reads a line from an open file and saves it into `var$`
 ```
 
 
-### `INSTR(string$, search$, startPos)`
+### `INSTR(string$, search$, [startPos])`
 
-Returns the position (starting with 0) of a substring within a string
+Returns the position (indexed from 0) of `search$` within `string$`, or -1 if not found. If provided, begin searching at index `startPos`
 
 ```
-10  TEXT$ = "Hello World"
-20  SEARCHFOR$ = "W"
-30  PRINT INSTR(TEXT$, SEARCHFOR$, 0)
+10  TEXT$ = "Hello, World! Hello, Telehack!"
+20  PRINT INSTR(TEXT$, "llo")
+30  PRINT INSTR(TEXT$, "llo", 3)
+40  PRINT INSTR(TEXT$, "foo")
 ```
 ```
- 6
+ 2
+ 16
+ -1
 ```
+
+_See also [`POS`](#posstring-search-startpos)_
 
 
 ### `INT (n)`
 
-Truncate a value to a whole number
+Truncate a value to a whole number (towards zero)
 
 ```
 10  PRINT INT(5.6)
+20  PRINT INT(-5.6)
 ```
 ```
  5
+ -5
 ```
 
 
@@ -978,14 +1001,19 @@ In TeleBASIC this will almost always be 1.
 
 Returns the leftmost `n` characters of the specified string `s$`
 
+If `n` is negative, returns everything except the rightmost `ABS(n)` characters
+
 ```
 10  A$ = "Hello World"
-20  B$ = LEFT$(A$, 5)
-30  PRINT B$
+20  PRINT LEFT$(A$, 5)
+30  PRINT LEFT$(A$, -3)
 ```
 ```
 Hello
+Hello Wo
 ```
+
+_See also [`MID$`](#mids-n-l) and [`RIGHT$`](#rights-n)_
 
 
 ### `LEN(s$)`
@@ -1063,27 +1091,48 @@ Returns the natural logarithm of `n` using 10 as the base (decimal).
 
 ### `MID$(s$, n, [l])`
 
-Returns a string of `l` characters from `s$` beginning with the `n`th character
+Returns a substring of `l` characters from `s$` beginning with the `n`th character (indexed from 1)
+
+If `l` is omitted or zero, the rest of the string is returned. If `l` is negative, the end of the substring is indexed relative to the end of the string
+
+If `n` is zero or negative, the start of the substring is indexed relative to the end of the string
+
 
 ```
 10  A$ = "Hello World"
 20  PRINT MID$(A$,3,3)
+30  PRINT MID$(A$,3)
+40  PRINT MID$(A$,3,-3)
+50  PRINT MID$(A$,-3,3)
 ```
 ```
 llo
+llo World
+llo Wo
+orl
 ```
+
+_See also [`LEFT$`](#lefts-n) and [`RIGHT$`](#rights-n)_
 
 
 ### `NINT(n)`
 
-Returns the nearest integer of the specified value (9.5 becomes 9)
+Returns `n` rounded to the nearest integer, with 0.5 rounding towards 0
 
 ```
 10  PRINT NINT(5.6)
+20  PRINT NINT(5.5)
+30  PRINT NINT(5.4)
+40  PRINT NINT(-5.5)
 ```
 ```
  6
+ 5
+ 5
+ -5
 ```
+
+_See also [`CINT`](#cintn)_
 
 
 ### `NUM(s$)`
@@ -1096,7 +1145,9 @@ Returns the ASCII value of the first character in the string `s$`
 ```
  65
 ```
+
 _See also [`ASC`](#ascs)_
+_Not to be confused with [`VAL(s$)`](#vals), which returns the numeric value of `s$`._
 
 
 ### `OCT$(n)`
@@ -1197,17 +1248,23 @@ Returns the port from the currently logged in user.  Not to be confused with the
 ```
 
 
-### `POS(s1$,s2$)`
+### `POS(string$, search$, [startPos])`
 
-Returns the position of `s2$` in `s1$` indexed from 1, or 0 if not found
+Returns the position (indexed from 1) of `search$` within `string$`, or 0 if not found. If provided, begin searching at index `startPos`
 
 ```
-10  A$="ABCDE"
-20  PRINT POS(A$,"CD")
+10  TEXT$ = "Hello, World! Hello, Telehack!"
+20  PRINT POS(TEXT$, "llo")
+30  PRINT POS(TEXT$, "llo", 4)
+40  PRINT POS(TEXT$, "foo")
 ```
 ```
  3
+ 17
+ 0
 ```
+
+_See also [`INSTR`](#instrstring-search-startpos)_
 
 
 ### `PRINT expression`
@@ -1280,6 +1337,8 @@ Converts `n` radians to degrees
 ```
  68.755
 ```
+
+_See also [`D2R`](#d2rn)_
 
 
 ### `READ n...`
@@ -1382,6 +1441,8 @@ Returns the rightmost `n` characters of the specified string `s$`
 World
 ```
 
+_See also [`LEFT$`](#lefts-n) and [`MID$`](#mids-n-l)_
+
 
 ### `RND(n)`
 
@@ -1452,13 +1513,14 @@ Returns the sign of the specified value `n`
 
 ### `SIN(n)`
 
-Returns the trigonometric sine of the specified value `n` in radians
+Returns the trigonometric sine of the angle `n`, given in radians
 
 ```
-10  PRINT SIN(36)
+10  PI = 3.14159
+20  PRINT SIN(PI/6)
 ```
 ```
- -0.991778853443116
+0.500
 ```
 
 
@@ -1548,13 +1610,16 @@ abc          abc
 
 ### `TAN(n)`
 
-Returns the trigonometric tangent of the specified value `n` in radians
+Returns the trigonometric tangent of the angle `n`, given in radians
 
 ```
-10  PRINT TAN(38)
+10  PI = 3.14159
+20  PRINT TAN(PI/3)
+30  PRINT SQRT(3)
 ```
 ```
- 0.310
+ 1.732
+ 1.732
 ```
 
 
@@ -2163,6 +2228,8 @@ Returns the numeric value of `s$`
 ```
  12345
 ```
+
+_Not to be confused with [`NUM(s$)`](#nums), which returns the ASCII value of the first character in the string `s$`._
 
 
 ### `WIDTH`
