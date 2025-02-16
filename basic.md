@@ -267,7 +267,7 @@ In addition to this, TeleBASIC allows for creation of multi-dimensional arrays, 
 - [`ARGC%`](#argc)  The number of arguments passed to the program
 - [`ARGV$(n)`](#argvn)  An array containing all of the arguments passed to the program
 - [`ASC(s$)`](#ascs)  Returns the ASCII value of the first character in the string `s$`
-- [`ATN(n)`](#atnn)  Returns the arctangent of the specified value `n`
+- [`ATN(n)`](#atnn)  Returns the arctangent (in radians) of the specified value `n`
 
 #### B
 
@@ -281,7 +281,7 @@ In addition to this, TeleBASIC allows for creation of multi-dimensional arrays, 
 - [`CINT(n)`](#cintn)  Returns the nearest integer of the specified value
 - [`CIRCLE`](#circle)  Currently not implemented, does nothing
 - [`COLOR(a, b)`](#colora-b)  Changes the colours of the terminal
-- [`COS(n)`](#cosn)  Returns the cosinus of a specified value `n` in radians
+- [`COS(n)`](#cosn)  Returns the trigonometric cosine of the angle `n` (in radians)
 - [`CSNG(n)`](#csngn)  Convert a specified value `n` to a single precision number
 
 #### D
@@ -388,7 +388,7 @@ In addition to this, TeleBASIC allows for creation of multi-dimensional arrays, 
 - [`SCRATCH`](#scratch)  Delete a file from the disk
 - [`SCREEN`](#screen)  Currently not implemented, does nothing
 - [`SGN(n)`](#sgnn)  Returns the sign of the specified value `n`
-- [`SIN(n)`](#sinn)  Returns the trigonometric sine of the specified value `n` in radians
+- [`SIN(n)`](#sinn)  Returns the trigonometric sine of the angle `n` (in radians)
 - [`SLEEP n`](#sleep-n)  Pauses the program for `n` seconds
 - [`SOUND`](#sound)  Currently not implemented, does nothing
 - [`SOUNDRND`](#soundrnd)  Currently not implemented, does nothing
@@ -402,7 +402,7 @@ In addition to this, TeleBASIC allows for creation of multi-dimensional arrays, 
 #### T
 
 - [`TAB(n), TAB$(n)`](#tabn-tabn)  Returns `n` spaces (not tabs!)
-- [`TAN(n)`](#tann)  Returns trigonometric tangent of `n` in radians
+- [`TAN(n)`](#tann)  Returns the trigonometric tangent of the angle `n` (in radians)
 - [`TH_B64D$`](#th_b64d)  Returns argument decoded from base64
 - [`TH_B64E$`](#th_b64e)  Returns argument encoded to base64
 - [`TH_DEFGROUP$`](#th_defgroup)  Returns the user's defgroup, separated by spaces
@@ -522,13 +522,16 @@ _See also [`NUM`](#nums)_
 
 ### `ATN(n)`
 
-Returns the arctangent of the specified value `n`
+Returns the arctangent (in radians) of the specified value `n`
 
 ```
-10  PRINT ATN(40)
+10  PI = 3.14159
+20  PRINT ATN(1)
+30  PRINT PI/4
 ```
 ```
- 1.546
+ 0.785
+ 0.785
 ```
 
 
@@ -598,13 +601,16 @@ _Prints `Hello` with blue `b` background and yellow `a` foreground text.  A list
 
 ### `COS(n)`
 
-Returns the cosinus of a specified value `n` in radians
+Returns the trigonometric cosine of the angle `n`, given in radians
 
 ```
-10  PRINT COS(67)
+10  PI = 3.14159
+20  PRINT COS(PI/6)
+30  PRINT SQRT(3)/2
 ```
 ```
- -0.517769799789505
+ 0.866
+ 0.866
 ```
 
 
@@ -1472,13 +1478,14 @@ Returns the sign of the specified value `n`
 
 ### `SIN(n)`
 
-Returns the trigonometric sine of the specified value `n` in radians
+Returns the trigonometric sine of the angle `n`, given in radians
 
 ```
-10  PRINT SIN(36)
+10  PI = 3.14159
+20  PRINT SIN(PI/6)
 ```
 ```
- -0.991778853443116
+0.500
 ```
 
 
@@ -1568,13 +1575,16 @@ abc          abc
 
 ### `TAN(n)`
 
-Returns the trigonometric tangent of the specified value `n` in radians
+Returns the trigonometric tangent of the angle `n`, given in radians
 
 ```
-10  PRINT TAN(38)
+10  PI = 3.14159
+20  PRINT TAN(PI/3)
+30  PRINT SQRT(3)
 ```
 ```
- 0.310
+ 1.732
+ 1.732
 ```
 
 
