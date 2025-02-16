@@ -571,13 +571,19 @@ Convert an ASCII code `n` to its equivalent character
 
 ### `CINT(n)`
 
-Returns the nearest integer of the specified value (9.5 becomes 10)
+Returns `n` rounded to the nearest integer, with 0.5 rounding away from 0
 
 ```
-10  PRINT CINT(5.7)
+10  PRINT CINT(5.6)
+20  PRINT CINT(5.5)
+30  PRINT CINT(5.4)
+40  PRINT CINT(-5.5)
 ```
 ```
  6
+ 6
+ 5
+ -6
 ```
 
 _See also [`NINT`](#nintn)_
@@ -961,13 +967,15 @@ _See also [`POS`](#poss1s2)_
 
 ### `INT (n)`
 
-Truncate a value to a whole number
+Truncate a value to a whole number (towards zero)
 
 ```
 10  PRINT INT(5.6)
+20  PRINT INT(-5.6)
 ```
 ```
  5
+ -5
 ```
 
 
@@ -1092,13 +1100,19 @@ _See also [`LEFT$`](#lefts-n) and [`RIGHT$`](#rights-n)_
 
 ### `NINT(n)`
 
-Returns the nearest integer of the specified value (9.5 becomes 9)
+Returns `n` rounded to the nearest integer, with 0.5 rounding towards 0
 
 ```
 10  PRINT NINT(5.6)
+20  PRINT NINT(5.5)
+30  PRINT NINT(5.4)
+40  PRINT NINT(-5.5)
 ```
 ```
  6
+ 5
+ 5
+ -5
 ```
 
 _See also [`CINT`](#cintn)_
