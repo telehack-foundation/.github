@@ -1110,6 +1110,7 @@ Returns the ASCII value of the first character in the string `s$`
 ```
 
 _See also [`ASC`](#ascs)_
+_Not to be confused with [`VAL(s$)`](#vals), which returns the numeric value of `s$`._
 
 
 ### `OCT$(n)`
@@ -2182,6 +2183,8 @@ Returns the numeric value of `s$`
 ```
  12345
 ```
+
+_Not to be confused with [`NUM(s$)`](#nums), which returns the ASCII value of the first character in the string `s$`._
 
 
 ### `WIDTH`
