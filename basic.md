@@ -198,7 +198,7 @@ You can store either text or numeric values in variables.
 
 Variable names can contain letters and digits, but they have to start with a letter (e.g `FOO`, `BAR123$`).
 
-You cannot use reserved keywords (e.g [`FOR`](#for-x--startvalue-to-maxvalue-step-n), [`IF`](#if-expression-then-statements)) as variable names.
+You cannot use reserved keywords (e.g [`FOR`](#for-x--startvalue-to-maxvalue-step-n), [`IF`](#if-expression-then-statements)) as variable names. You also cannot begin a variable name with one of the logical operator keywords (e.g. `ORIGIN` is invalid because it begins with `OR`).
 
 Variable names are most often suffixed with a type definition character (called a "sigil"):
 
