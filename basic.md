@@ -1778,12 +1778,12 @@ Returns the number of user's roots
 ```
 
 
-### `TH_SYSOP`
+### `TH_SYSOPS`
 
 Returns the number of user's sysops
 
 ```
-10  PRINT TH_SYSOP
+10  PRINT TH_SYSOPS
 ```
 ```
  5
