@@ -328,6 +328,7 @@ In addition to this, TeleBASIC allows for creation of multi-dimensional arrays, 
 - [`INPUT FileNo, var$`](#input-fileno-var)  Reads a line from an open file
 - [`INPUT var$`](#input-var)  Read user input
 - [`INPUT "prompt", var$`](#input-prompt-var)  Read user input
+- [`INPUT;"prompt", var$`](#input-prompt-var)  Read user input (no trailing newline echo)
 - [`INPUT varA$, varB$, ...`](#input-vara-varb-)  Read user input
 - [`INPUT "prompt", varA$, varB$, ...`](#input-prompt-vara-varb-)  Read user input
 - [`INSTR(string$, search$, startPos)`](#instrstring-search-startpos)  Returns the position of a substring
@@ -813,6 +814,25 @@ Eliminate an array from the program.  Accepts a list of arrays.
  0  0 '' ''
 ```
 
+Multi-dimensional arrays can be selectively erased by specifying the leading dimensional keys,
+which will delete all keys underneath that key (excluding the key itself):
+```basic
+10 A(1) = 123 : A(1,2) = 456 : A(1,2,3) = 789
+20 PRINT A(1) A(1,2) A(1,2,3)
+30 ERASE A(1,2): REM erase everything under "1","2"
+40 PRINT A(1) A(1,2) A(1,2,3)
+50 ERASE A(1)  : REM erase everything under "1"
+60 PRINT A(1) A(1,2) A(1,2,3)
+70 ERASE A     : REM erase entire array
+80 PRINT A(1) A(1,2) A(1,2,3)
+```
+```
+ 123  456  789
+ 123  456  0
+ 123  0  0
+ 0  0  0
+```
+
 
 ### `EXP(n)`
 
@@ -976,6 +996,17 @@ Shows `prompt$` and reads input from the user and saves it into `var$`. Note tha
 20  PRINT A$
 ```
 
+The entirety of the user's input will be shown, including the newline resulting from pressing the *Enter* key. A semicolon before the prompt string will leave out the newline, such that:
+
+```basic
+10  INPUT ; "1 + "; WHAT%
+20  PRINT " =" (1 + WHAT%)
+```
+results in a single line `1 + 2 = 3` instead of
+```
+1 + 2
+ = 3
+```
 
 ### `INPUT varA$, varB$, ...`
 
@@ -1306,6 +1337,44 @@ Write a byte of data `m` into the specified memory location `n`
 10  POKE 1300, 255
 ```
 
+#### Critical sections
+When writing a BBS, the address `123` configures interrupt masking and can be thought of as a per-BBS mutex lock. This can be used to coordinate access to shared resources like database files and avoiding race conditions.
+
+`POKE 123, x` / `PEEK(123)` | Meaning
+--------------------------- | -------
+`1`                         | Interrupts are enabled (others threads **can** run)
+`0`                         | Interrupts are disabled (others threads **cannot** run)
+
+```basic
+PRINT "WELCOME TO MY BBS" PEEK(123)
+10 POKE 123,0 ' ENTER CRITICAL SECTION
+20 FOR i = 1 TO 5
+30   PRINT i, "all other callers are waiting for you" PEEK(123)
+40   SLEEP 1
+50 NEXT i
+60 PRINT "relinquishing:" PEEK(123) ;
+70 POKE 123,1
+80 PRINT "Released: " PEEK(123)
+90 SLEEP 3
+99 PRINT "ACQUIRING CRITICAL SECTION LOCK" : GOTO 10
+```
+
+An example of thread-safe file access, masking interrupts *before* `OPEN` and unmasking *after* `CLOSE`:
+```
+   10  row=1 : row$ = user$ + " is nice"
+   20  GOSUB 60
+   30  row=2 : row$ = user$ + " is wise"
+   40  GOSUB 60
+   50  END
+
+   60  REM SAVE TO A SHARED FILE
+   70  POKE 123, 0
+   80    OPEN "my.db", AS #1
+   90      PRINT#1, row ; row$
+  100    CLOSE #1
+  110  POKE 123, 1
+  120  RETURN
+```
 
 ### `POLKEY$(n)`
 
@@ -2490,6 +2559,7 @@ Now you can call it with:
 
 Your BBS baud-rate must be 115200 (11.520 kbps) in order for it to appear in the Telehack netstat.  To gain access to faster baud-rates requires you to upgrade your modem firmware (both `SYSADM` and `BLUEBOX` badges are required.)
 
+See [Critical Sections](#critical-sections) for the `POKE` required to achieve thread-safe file handling.
 
 ### **Q:** How do I split a string into an array?
 
